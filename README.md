@@ -14,6 +14,4 @@
     - javassist
     - hutool
     - guava
-    -
-    -
 
