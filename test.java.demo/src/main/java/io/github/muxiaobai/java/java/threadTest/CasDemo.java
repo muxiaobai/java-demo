@@ -1,7 +1,6 @@
-package  io.github.muxiaobai.java.thread.cas;
+package io.github.muxiaobai.java.java.threadTest;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicStampedReference;
-import java.util.concurrent.locks.ReentrantLock;
 
 
 public class CasDemo {

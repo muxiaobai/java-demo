@@ -1,12 +1,11 @@
 package io.github.muxiaobai.tool.guava.ratelimit;
 
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.mp4parser.aspectj.lang.ProceedingJoinPoint;
+
 public class RateLimitAspect {
     private RateLimitConfig config;
-    private ratelimit.RateLimitService rateLimitService;
-    public RateLimitAspect(RateLimitConfig config, ratelimit.RateLimitService rateLimitService) {
+    private RateLimitService rateLimitService;
+    public RateLimitAspect(RateLimitConfig config, RateLimitService rateLimitService) {
         this.config = config;
         this.rateLimitService = rateLimitService;
     }
@@ -31,7 +30,8 @@ public class RateLimitAspect {
                     result = pjp.proceed();
                 } else {
                     // 3.失败获取令牌，返回错误码 429 => to many requests
-                    result = ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).build();
+//                    result = ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).build();
+                    return "429";
                 }
             } else {
                 // 无开启限流，直接放行

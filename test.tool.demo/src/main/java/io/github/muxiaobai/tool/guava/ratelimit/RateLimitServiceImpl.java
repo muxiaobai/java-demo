@@ -8,7 +8,7 @@ public class RateLimitServiceImpl implements RateLimitService {
     private RateLimiter rateLimiter;
     public RateLimitServiceImpl(RateLimitConfig config) {
         this.config = config;
-        this.rateLimiter = RateLimiter.create(this.config());
+        this.rateLimiter = RateLimiter.create(1);
     }
     @Override
     public boolean tryAcquire() {

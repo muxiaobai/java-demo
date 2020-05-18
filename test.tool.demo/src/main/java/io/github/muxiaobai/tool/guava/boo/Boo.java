@@ -3,6 +3,7 @@ package io.github.muxiaobai.tool.guava.boo;
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnel;
 
+import java.nio.charset.Charset;
 import java.text.NumberFormat;
 import java.util.*;
 
@@ -14,7 +15,7 @@ public class Boo {
 
     public static void main(String[] args) {
 
-        BloomFilter<String> bloomFilter = BloomFilter.create((Funnel<String>)(integer, primitiveSink) -> primitiveSink.putString(integer), insertions, 0.001);
+        BloomFilter<String> bloomFilter = BloomFilter.create((Funnel<String>)(integer, primitiveSink) -> primitiveSink.putString(integer, Charset.defaultCharset()), insertions, 0.001);
 
         Set<String> sets = new HashSet<String>(insertions);
 
