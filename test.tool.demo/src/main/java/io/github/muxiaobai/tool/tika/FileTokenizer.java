@@ -9,14 +9,21 @@ import org.apache.tika.sax.BodyContentHandler;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * @文件分析器 http://tika.apache.org/1.1/formats.html
+ */
 public class FileTokenizer {
-    public static void main(String[] args)  throws Exception {
-        String fileName= "2016中国人工智能大会在京召开.docx";
-        parserFile(new File(fileName));
+    public static void main(String[] args)  throws Exception{
+        String fileName= "files/2016中国人工智能大会在京召开.docx";
+        URL url =ClassLoader.getSystemResource("files");
+        String path = url.getPath();
+        parserFile(new File(path+File.separator+fileName));
+        InputStream inputStream =ClassLoader.getSystemResourceAsStream("files"+File.separator+fileName);
+        parserInputStream(inputStream);
     }
 
     public static Map extractFile(String filePath) throws Exception {

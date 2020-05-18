@@ -1,4 +1,4 @@
-package io.github.muxiaobai.java.util;
+package io.github.muxiaobai.java.java.collectionTest;
 
 import java.util.HashMap;
 import java.util.UUID;

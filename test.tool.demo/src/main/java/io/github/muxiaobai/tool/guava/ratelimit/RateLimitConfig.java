@@ -1,9 +1,9 @@
 package io.github.muxiaobai.tool.guava.ratelimit;
 
+
 import lombok.Data;
 
 import java.io.Serializable;
-
 @Data
 public class RateLimitConfig implements Serializable {
 

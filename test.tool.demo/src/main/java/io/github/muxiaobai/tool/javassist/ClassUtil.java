@@ -38,13 +38,13 @@ public class ClassUtil {
      *  生成Class类文件
      * @author  Zhang Pengfei
      * @date 2020/1/20/020 17:21
-     * @param name clazz文件名
+     * @param javaName clazz文件名
      * @param maps 字段和字段类型
      * @param  everyNewFlag
      * @return java.lang.Class
      */
-    public static Class generateClazz(String name, Map<String,String> maps,Boolean everyNewFlag) {
-        String className  =patternToHump(LinePattern,name);
+    public static Class generateClazz(String javaName, Map<String,String> maps,Boolean everyNewFlag) {
+        String className  =patternToHump(LinePattern,javaName);
         Class javaClazz = null;
         String packageClassName = "test.tool.demo.vo." + className;
         //是否每次都是用new Class
@@ -76,8 +76,8 @@ public class ClassUtil {
 
                 AnnotationsAttribute bodyAttr = new AnnotationsAttribute(constPool, AnnotationsAttribute.visibleTag);
                 Annotation bodyAnnot = new Annotation("org.springframework.data.elasticsearch.annotations.Document", constPool);
-                bodyAnnot.addMemberValue("indexName", new StringMemberValue(index, constPool));
-                bodyAnnot.addMemberValue("type", new StringMemberValue(index, constPool));
+                bodyAnnot.addMemberValue("indexName", new StringMemberValue(javaName, constPool));
+                bodyAnnot.addMemberValue("type", new StringMemberValue(javaName, constPool));
                 bodyAttr.addAnnotation(bodyAnnot);
                 ccFile.addAttribute(bodyAttr);
 
@@ -120,7 +120,7 @@ public class ClassUtil {
             CtField ctFieldOne = new CtField(pool.get(value), key, clazz);
             ctFieldOne.setModifiers(Modifier.PRIVATE);
 //            @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-            if(FieldType.DATE.getJavaClazz()==value) {
+            if("java.util.Date".equals(value)) {
                 ClassFile ccFile = clazz.getClassFile();
                 ConstPool constPool = ccFile.getConstPool();
                 // 日期添加属性注解
