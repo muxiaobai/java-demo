@@ -9,8 +9,18 @@ public class JOLPeople {
     public static void main(String[] args) {
         print(ClassLayout.parseInstance(new JOLPeople()).toPrintable());
 
-        print(ClassLayout.parseInstance(new String()).toPrintable());
-        print(ClassLayout.parseInstance(new char[8]).toPrintable());
+        print(ClassLayout.parseInstance(new String("Xiaoming")).toPrintable());
+        char[] chars = new char[8];
+        chars[0] = 'X';
+        chars[1] = 'i';
+        chars[2] = 'a';
+        chars[3] = 'o';
+        chars[4] = 'm';
+        chars[5] = 'i';
+        chars[6] = 'n';
+        chars[7] = 'g';
+
+        print(ClassLayout.parseInstance(chars).toPrintable());
     }
 
     static void print(String message) {
