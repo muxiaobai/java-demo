@@ -28,15 +28,11 @@ public class JOLSize {
         print(ClassLayout.parseInstance(new Object()).toPrintable());
         print(ClassLayout.parseInstance(Object.class).toPrintable());
 
-        print(ClassLayout.parseClass(JOLPeople.class).toPrintable());
-        print(ClassLayout.parseInstance(new JOLPeople()).toPrintable());
-        print(ClassLayout.parseInstance(JOLPeople.class).toPrintable());
-
-        print(ClassLayout.parseInstance(new char[5]).toPrintable());
-        print(ClassLayout.parseInstance(new int[2]).toPrintable());
-        print(ClassLayout.parseInstance(new Integer(1)).toPrintable());
+        print(ClassLayout.parseInstance(new char[8]).toPrintable());
         print(ClassLayout.parseInstance(new String()).toPrintable());
 
+        print(ClassLayout.parseInstance(new int[2]).toPrintable());
+        print(ClassLayout.parseInstance(new Integer(1)).toPrintable());
         print(ClassLayout.parseInstance(new String[5]).toPrintable());
         print(ClassLayout.parseInstance(new Object[5]).toPrintable());
         print(ClassLayout.parseInstance(new HashMap()).toPrintable());

@@ -18,7 +18,7 @@ import java.util.Map;
  */
 public class FileTokenizer {
     public static void main(String[] args)  throws Exception{
-        String fileName= "files/2016中国人工智能大会在京召开.docx";
+        String fileName= "2016中国人工智能大会在京召开.docx";
         URL url =ClassLoader.getSystemResource("files");
         String path = url.getPath();
         parserFile(new File(path+File.separator+fileName));

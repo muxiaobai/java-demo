@@ -23,6 +23,7 @@ public class demo {
     }
 }
 class  demoThread implements    Runnable{
+    @Override
     public void run() {
         Integer demo =  main.muxiaobai.demo.threadLocal.get();
         Thread.currentThread();
