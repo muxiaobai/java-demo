@@ -115,9 +115,11 @@ public class ShallowTool {
             if (isObjectArray(type)) {
                 // introspect object arrays
                 final Object[] ar = (Object[]) obj;
-                for (final Object item : ar)
-                    if (item != null)
+                for (final Object item : ar) {
+                    if (item != null) {
                         root.addChild(introspect(item, null));
+                    }
+                }
             } else {
                 for (final Field field : getAllFields(type)) {
                     if ((field.getModifiers() & Modifier.STATIC) != 0) {
@@ -165,27 +167,29 @@ public class ShallowTool {
 
     // advanced toString logic
     private static String getContents(final Object val, final Class<?> type) {
-        if (val == null){
-            return "null";}
+        if (val == null) {
+            return "null";
+        }
         if (type.isArray()) {
-            if (type == byte[].class){
-                return Arrays.toString((byte[]) val);}
-            else if (type == boolean[].class){
-                return Arrays.toString((boolean[]) val);}
-            else if (type == char[].class){
-                return Arrays.toString((char[]) val);}
-            else if (type == short[].class){
-                return Arrays.toString((short[]) val);}
-            else if (type == int[].class){
-                return Arrays.toString((int[]) val);}
-            else if (type == long[].class){
-                return Arrays.toString((long[]) val);}
-            else if (type == float[].class){
-                return Arrays.toString((float[]) val);}
-            else if (type == double[].class){
-                return Arrays.toString((double[]) val);}
-            else{
-                return Arrays.toString((Object[]) val);}
+            if (type == byte[].class) {
+                return Arrays.toString((byte[]) val);
+            } else if (type == boolean[].class) {
+                return Arrays.toString((boolean[]) val);
+            } else if (type == char[].class) {
+                return Arrays.toString((char[]) val);
+            } else if (type == short[].class) {
+                return Arrays.toString((short[]) val);
+            } else if (type == int[].class) {
+                return Arrays.toString((int[]) val);
+            } else if (type == long[].class) {
+                return Arrays.toString((long[]) val);
+            } else if (type == float[].class) {
+                return Arrays.toString((float[]) val);
+            } else if (type == double[].class) {
+                return Arrays.toString((double[]) val);
+            } else {
+                return Arrays.toString((Object[]) val);
+            }
         }
         return val.toString();
     }
@@ -196,7 +200,8 @@ public class ShallowTool {
         if (type.isPrimitive()) {
             final Integer res = primitiveSizes.get(type);
             return res != null ? res : 0;
-        } else{
-            return objectRefSize;}
+        } else {
+            return objectRefSize;
+        }
     }
 }

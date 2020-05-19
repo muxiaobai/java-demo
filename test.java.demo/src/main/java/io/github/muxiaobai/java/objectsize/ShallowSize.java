@@ -41,8 +41,6 @@ public class ShallowSize {
 
 
 *****************************************************************************
-
-
      public ObjectC(){
          array[0] = new ObjectD();
          array[1] = new ObjectD();
