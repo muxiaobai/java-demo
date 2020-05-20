@@ -3,18 +3,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
+    <developers>
+        <developer>
+            <name>muxiaobai</name>
+            <email>zpf12345678910@gmail.com</email>
+        </developer>
+    </developers>
   <groupId>io.github.muxiaobai</groupId>
   <artifactId>java-demo</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0-RELEASE</version>
     <modules>
         <module>test.java.demo</module>
         <module>test.tool.demo</module>
     </modules>
   <packaging>pom</packaging>
-
-  <name>java-demo</name>
-  <url>http://xkcoding.com</url>
+    <name>java-demo</name>
+    <url>http://muxiaobai.github.io/java-demo</url>
+    <description>java demo jar </description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,6 +38,25 @@
     <hanlp.version>portable-1.7.6</hanlp.version>
     <lombok.version>1.18.8</lombok.version>
   </properties>
+
+    <scm>
+        <connection>scm:git:git://github.com/muxiaobai/rpc.git</connection>
+        <developerConnection>scm:git:ssh://github.com:muxiaobai/rpc.git</developerConnection>
+        <url>http://github.com/muxiaobai/rpc/tree/master</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>oss</id>
+            <name>snapshots repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>oss</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
   <dependencyManagement>
     <dependencies>
