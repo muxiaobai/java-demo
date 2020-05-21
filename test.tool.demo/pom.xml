@@ -11,6 +11,12 @@
     <artifactId>test.tool.demo</artifactId>
 
 <dependencies>
+    <dependency>
+        <groupId>io.github.muxiaobai</groupId>
+        <artifactId>test.common.demo</artifactId>
+        <version>${version}</version>
+    </dependency>
+
     <!-- hutool工具类 -->
     <dependency>
         <groupId>cn.hutool</groupId>
@@ -41,7 +47,40 @@
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>1.18.8</version>
+        <version>${lombok.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.bytedeco</groupId>
+        <artifactId>javacv</artifactId>
+        <version>1.5.3</version>
+    </dependency>
+    <!--        <dependency>-->
+    <!--            <groupId>org.bytedeco</groupId>-->
+    <!--            <artifactId>javacpp</artifactId>-->
+    <!--            <version>1.5.3</version>-->
+    <!--        </dependency>-->
+
+    <dependency>
+        <groupId>org.bytedeco</groupId>
+        <artifactId>javacv-platform</artifactId>
+        <version>1.5.3</version>
+    </dependency>
+    <dependency>
+        <groupId>org.bytedeco.javacpp-presets</groupId>
+        <artifactId>ffmpeg-platform</artifactId>
+        <version>3.4.2-1.4.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.bytedeco.javacpp-presets</groupId>
+        <artifactId>opencv-platform</artifactId>
+        <version>3.4.1-1.4.1</version>
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>RELEASE</version>
+        <scope>compile</scope>
     </dependency>
 </dependencies>
 </project>
