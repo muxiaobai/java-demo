@@ -11,4 +11,6 @@
     - javassist
     - hutool
     - guava
+#### 打包到maven 仓库
 
+mvn javadoc:jar source:jar deploy -P release -Darguments="gpg.passphrase="password"
