@@ -66,6 +66,7 @@
         <groupId>org.bytedeco.javacpp-presets</groupId>
         <artifactId>opencv</artifactId>
         <version>4.0.1-1.4.4</version>
+        <classifier>windows-x86_64</classifier>
     </dependency>
 
     <dependency>
@@ -73,17 +74,17 @@
         <artifactId>javacv</artifactId>
         <version>1.5.3</version>
     </dependency>
-    <!--        <dependency>-->
-    <!--            <groupId>org.bytedeco</groupId>-->
-    <!--            <artifactId>javacpp</artifactId>-->
-    <!--            <version>1.5.3</version>-->
-    <!--        </dependency>-->
+<!--    <dependency>-->
+<!--        <groupId>org.bytedeco</groupId>-->
+<!--        <artifactId>javacpp</artifactId>-->
+<!--        <version>1.5.3</version>-->
+<!--    </dependency>-->
 
     <dependency>
         <groupId>org.bytedeco</groupId>
         <artifactId>javacv-platform</artifactId>
         <version>1.5.3</version>
-        <classifier>windows-x86_64</classifier>
+<!--        <classifier>windows-x86_64</classifier>-->
 <!--        <classifier>linux-x86_64</classifier>-->
 <!--        <javacpp.platform.android-arm>android-arm</javacpp.platform.android-arm>-->
 <!--        <javacpp.platform.android-arm64>android-arm64</javacpp.platform.android-arm64>-->

@@ -39,7 +39,7 @@ public class ImagePHash {
     // 项目根目录路径
     public static final String path = System.getProperty("user.dir");
     private int size = 32;
-    private int smallerSize = 8;
+    private int smallerSize = 11;
 
     private ImagePHash() {
         initCoefficients();
@@ -206,12 +206,12 @@ public class ImagePHash {
         String image3;
         try {
             image2 = p.getHash(new FileInputStream(new File(filename + "/source.png")));
-            image3 = p.getHash(new FileInputStream(new File(filename + "/source2.png")));
+//            image3 = p.getHash(new FileInputStream(new File(filename + "/source2.png")));
 
             for (int i = 0; i < 7; i++) {
                 image1 = p.getHash(new FileInputStream(new File(filename + "/example" + (i + 1) + ".png")));
-//                System.out.println("example" + (i + 1) + ".png,phash:"+image1+":source.jpg,"+image2+" Score is " + p.distance(image1, image2));
-                System.out.println("example" + (i + 1) + ".png,phash:"+image1+":source2.jpg,"+image3+" Score is " + p.distance(image1, image3));
+                System.out.println("example" + (i + 1) + ".png,phash:"+image1+":source.jpg,"+image2+" Score is " + p.distance(image1, image2));
+//                System.out.println("example" + (i + 1) + ".png,phash:"+image1+":source2.jpg,"+image3+" Score is " + p.distance(image1, image3));
 
             }
         } catch (FileNotFoundException e) {
