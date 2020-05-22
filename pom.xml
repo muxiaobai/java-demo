@@ -13,9 +13,9 @@
   <artifactId>java-demo</artifactId>
   <version>1.0.0-RELEASE</version>
     <modules>
-        <module>test.java.demo</module>
-        <module>test.tool.demo</module>
-        <module>test.common.demo</module>
+        <module>test-java-demo</module>
+        <module>test-tool-demo</module>
+        <module>test-common-demo</module>
     </modules>
   <packaging>pom</packaging>
     <name>java-demo</name>

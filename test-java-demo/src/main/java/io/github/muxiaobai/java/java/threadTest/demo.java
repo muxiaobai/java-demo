@@ -1,4 +1,4 @@
-package io.github.muxiaobai.java.thread;
+package io.github.muxiaobai.java.java.threadTest;
 
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
@@ -25,8 +25,8 @@ public class demo {
 class  demoThread implements    Runnable{
     @Override
     public void run() {
-        Integer demo = io.github.muxiaobai.java.thread.demo.threadLocal.get();
+        Integer i = demo.threadLocal.get();
         Thread.currentThread();
-        System.out.println(Thread.currentThread().getName()+",demo :"+demo);
+        System.out.println(Thread.currentThread().getName()+",demo :"+i);
     }
 }

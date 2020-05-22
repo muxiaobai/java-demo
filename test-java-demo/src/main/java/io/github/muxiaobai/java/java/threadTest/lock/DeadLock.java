@@ -1,4 +1,4 @@
-package io.github.muxiaobai.java.java.threadTest;
+package io.github.muxiaobai.java.java.threadTest.lock;
 
 /** 
  * 
