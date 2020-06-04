@@ -17,7 +17,31 @@
         <artifactId>jol-core</artifactId>
         <version>0.10</version>
     </dependency>
-
+          <dependency>
+              <groupId>com.chrisnewland</groupId>
+              <artifactId>jitwatch</artifactId>
+              <version>1.0.0</version>
+          </dependency>
 </dependencies>
-
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>LATEST</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>java</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <mainClass>org.adoptopenjdk.jitwatch.launch.LaunchUI</mainClass>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

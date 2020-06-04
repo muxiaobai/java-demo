@@ -62,7 +62,23 @@ Total       2388961      117489272
 
 拿第五行，String来看一下:5072568/211357 = 24  一个String对象本身大小24字节 24bytes
 
-##
+## jit 即时编译
+
+mvn  exec:java
+
+运行加参数：
+
+-server 
+-XX:+UnlockDiagnosticVMOptions
+-XX:+TraceClassLoading
+-XX:+LogCompilation
+-XX:LogFile=mylogfile.log
+-XX:+PrintAssembly
+-XX:+TraceClassLoading
+
+
+
+https://github.com/AdoptOpenJDK/jitwatch.git
 
 
 
