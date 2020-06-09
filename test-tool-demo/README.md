@@ -18,4 +18,8 @@
 
 ## kumo 类似于python wordcloud 词云
 
+[kumo Tutorial](http://kennycason.com/posts/2014-07-03-kumo-wordcloud.html)
 
+[https://github.com/kennycason/kumo](https://github.com/kennycason/kumo)
+
+## javacv 类似于opencv
