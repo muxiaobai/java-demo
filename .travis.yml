@@ -1,0 +1,5 @@
+language: java
+jdk:
+ - openjdk8
+install:  mvn javadoc:jar source:jar deploy -P release -Darguments="gpg.passphrase=${gpgpwd}" -Dmaven.javadoc.skip=true
+script: mvn test
