@@ -8,17 +8,15 @@ package io.github.muxiaobai.java.java.threadTest;
  */
 
 public class SynchronizedTest {
-	  private static int NUM_OF_THREAD = 100;
+	  private static int NUM_OF_THREAD = 1000;
 	    static Thread[] threads = new Thread[NUM_OF_THREAD];
 	    
 	    public static void main(String[] args){
 	        final Account acc = new Account("John", 1000.0f);
 	        for (int i = 0; i< NUM_OF_THREAD; i++) {
-	            threads[i] = new Thread(new Runnable() {
-	                public void run() {
+	            threads[i] = new Thread(()->{
 	                        acc.deposit(100.0f);
 	                        acc.withdraw(100.0f);
-	                }
 	            });
 	            threads[i].start();
 	        }
