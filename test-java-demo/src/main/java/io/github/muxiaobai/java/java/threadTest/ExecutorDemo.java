@@ -14,7 +14,7 @@ public class ExecutorDemo {
     private static CountDownLatch countDownLatch = new CountDownLatch(nums);
 
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newCachedThreadPool();
+        ExecutorService executorService = Executors.newFixedThreadPool(200);
 
         Long start = System.currentTimeMillis();
         for (int i = 0; i < nums; i++) {
@@ -23,10 +23,11 @@ public class ExecutorDemo {
                     System.out.println("子线程" + Thread.currentThread().getName() + "开始执行");
                     Thread.sleep((long) (Math.random() * 100));
                     System.out.println("子线程"+Thread.currentThread().getName()+"执行完成");
-                    /// latch 数减1
-                    countDownLatch.countDown();
                 } catch (Exception e) {
                     e.printStackTrace();
+                }finally {
+                    /// latch 数减1
+                    countDownLatch.countDown();
                 }
             });
         }

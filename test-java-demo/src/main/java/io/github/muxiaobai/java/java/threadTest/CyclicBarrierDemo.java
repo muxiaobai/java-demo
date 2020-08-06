@@ -22,7 +22,7 @@ public class CyclicBarrierDemo {
                     System.out.println("1,run:" + Thread.currentThread().getName());
 
                     cyclicBarrier.await();
-                    /// 所有的执行完了再开始执行
+                    /// 都在这里等着，所有的执行完了再开始执行
                     System.out.println("2,run:" + Thread.currentThread().getName());
                 } catch (Exception e) {
                     e.printStackTrace();
