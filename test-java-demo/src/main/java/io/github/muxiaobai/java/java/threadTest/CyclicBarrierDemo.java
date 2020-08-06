@@ -1,5 +1,14 @@
 package io.github.muxiaobai.java.java.threadTest;
 
+import sun.net.www.http.HttpClient;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.*;
 
 /**
@@ -7,28 +16,29 @@ import java.util.concurrent.*;
  * 发令枪
  */
 public class CyclicBarrierDemo {
-
-    /*并发设置为1000*/
-    private static final int nums = 1000;
-
-    private static  CyclicBarrier cyclicBarrier = new CyclicBarrier(nums + 1);
-
     public static void main(String[] args) {
 
-        Long start = System.currentTimeMillis();
+        /*并发设置为1000*/
+        int nums = 1000;
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(nums + 1);
+        ExecutorService executorService = Executors.newCachedThreadPool();
         for (int i = 0; i < nums; i++) {
-            new Thread(() -> {
+            executorService.execute(() -> {
                 try {
                     System.out.println("1,run:" + Thread.currentThread().getName());
 
                     cyclicBarrier.await();
                     /// 都在这里等着，所有的执行完了再开始执行
                     System.out.println("2,run:" + Thread.currentThread().getName());
+                    String url = "http://192.168.120.83:8083/openlab_web/openapp/system/captcha/generate";
+                    doGet(url);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }).start();
+            });
         }
+        executorService.shutdown();
         try {
             cyclicBarrier.await();
         } catch (InterruptedException e) {
@@ -36,5 +46,65 @@ public class CyclicBarrierDemo {
         } catch (BrokenBarrierException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String doGet(String httpurl) {
+        HttpURLConnection connection = null;
+        InputStream is = null;
+        BufferedReader br = null;
+        String result = null;// 返回结果字符串
+        try {
+            // 创建远程url连接对象
+            URL url = new URL(httpurl);
+            // 通过远程url连接对象打开一个连接，强转成httpURLConnection类
+            connection = (HttpURLConnection) url.openConnection();
+            // 设置连接方式：get
+            connection.setRequestMethod("GET");
+            // 设置连接主机服务器的超时时间：15000毫秒
+            connection.setConnectTimeout(15000);
+            // 设置读取远程返回的数据时间：60000毫秒
+            connection.setReadTimeout(60000);
+            // 发送请求
+            connection.connect();
+            // 通过connection连接，获取输入流
+            if (connection.getResponseCode() == 200) {
+                is = connection.getInputStream();
+                // 封装输入流is，并指定字符集
+                br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                // 存放数据
+                StringBuffer sbf = new StringBuffer();
+                String temp = null;
+                while ((temp = br.readLine()) != null) {
+                    sbf.append(temp);
+                    sbf.append("\r\n");
+                }
+                result = sbf.toString();
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            if (null != br) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (null != is) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            connection.disconnect();// 关闭远程连接
+        }
+
+        return result;
     }
 }
