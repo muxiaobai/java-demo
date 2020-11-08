@@ -1,7 +1,5 @@
 package io.github.muxiaobai.java.java.threadTest;
 
-import sun.net.www.http.HttpClient;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +7,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.*;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 等待，所有的线程在1，await等待，直到 最后一个await到0 一起出发
@@ -19,7 +20,7 @@ public class CyclicBarrierDemo {
     public static void main(String[] args) {
 
         /*并发设置为1000*/
-        int nums = 1000;
+        int nums = 100;
         CyclicBarrier cyclicBarrier = new CyclicBarrier(nums + 1);
         ExecutorService executorService = Executors.newCachedThreadPool();
         for (int i = 0; i < nums; i++) {
@@ -30,7 +31,7 @@ public class CyclicBarrierDemo {
                     cyclicBarrier.await();
                     /// 都在这里等着，所有的执行完了再开始执行
                     System.out.println("2,run:" + Thread.currentThread().getName());
-                    String url = "http://192.168.120.83:8083/openlab_web/openapp/system/captcha/generate";
+                    String url = "http://192.168.120.61:8083/openlab_web/openapp/system/captcha/generate";
                     doGet(url);
 
                 } catch (Exception e) {
