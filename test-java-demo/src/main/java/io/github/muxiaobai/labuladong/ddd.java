@@ -140,7 +140,7 @@ public class ddd {
         }
     }
 
-    static  void demoWord() {
+    static void demoWord() {
         String[] aaa = new String[]{"hot", "dot", "dog", "lot", "log", "cog"};
         ArrayList arrayList = new ArrayList<String>();
         arrayList.addAll(Arrays.asList(aaa));
@@ -294,6 +294,8 @@ class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
+    List<TreeNode> children = new ArrayList<>();
+
 
     TreeNode() {
     }
@@ -306,5 +308,10 @@ class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
+    }
+
+    @Override
+    public String toString() {
+        return this.val+"";
     }
 }

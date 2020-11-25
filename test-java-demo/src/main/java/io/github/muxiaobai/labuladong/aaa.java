@@ -6,11 +6,15 @@ package io.github.muxiaobai.labuladong;
  * 记录表
  * 自顶向下
  * 自下而上
+ * F(0) = 0,   F(1) = 1
+ * F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
+ * 509. 斐波那契数 https://leetcode-cn.com/problems/fibonacci-number/
  */
 public class aaa {
     public static void main(String[] args) {
-        int x = 40;
+        int x = 45;
         aaa aaa = new aaa();
+        // 普通斐波那契
         aaa.demofib(x);
         // 备忘录
         aaa.demofib2(x);

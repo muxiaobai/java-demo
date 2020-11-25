@@ -66,7 +66,12 @@ public class iii {
 
     public static void printf(int[][] intervals) {
         for (int i = 0; i < intervals.length; i++) {
-            System.out.println("["+intervals[i][0] + ", " + intervals[i][1]+"]");
+            int[] interval  =intervals[i];
+            System.out.print("[ ");
+            for (int j = 0; j < interval.length; j++) {
+                System.out.print(intervals[i][j] + ", " );
+            }
+            System.out.println("]");
         }
     }
 
