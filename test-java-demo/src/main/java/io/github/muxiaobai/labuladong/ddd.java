@@ -245,8 +245,8 @@ public class ddd {
      * *    2        3
      * *  4  5      4  n
      * * n 4 n 6    nn
-     *    nn   nn
-     *
+     * nn   nn
+     * <p>
      * 1,2,4,#,4,#,#,5,#,6,#,#,3,4,#,#,#
      * #,4,#,4,#,2,#,5,#,6,#,1,#,4,#,3,#
      * #,#,#,4,4,#,#,#,6,5,2,#,#,4,#,3,1
@@ -261,14 +261,16 @@ public class ddd {
         root.left.right = new TreeNode(5);
         root.left.right.right = new TreeNode(6);
         root.left.left.right = new TreeNode(4);
-       return root;
+        return root;
     }
+
     static void demo() {
         System.out.println(BFS(returnTree()));
     }
 
     /**
      * 最短路径
+     * 116   https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/
      *
      * @param root
      * @return
@@ -323,6 +325,6 @@ class TreeNode {
 
     @Override
     public String toString() {
-        return this.val+"";
+        return this.val + "," + this.left + "," + this.right;
     }
 }
