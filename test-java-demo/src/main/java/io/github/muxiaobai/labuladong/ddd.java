@@ -241,19 +241,30 @@ public class ddd {
     }
 
     /**
-     * *      1
-     * *    2  3
-     * *   4 5 n n
-     * *   6
+     * *          1
+     * *    2        3
+     * *  4  5      4  n
+     * * n 4 n 6    nn
+     *    nn   nn
+     *
+     * 1,2,4,#,4,#,#,5,#,6,#,#,3,4,#,#,#
+     * #,4,#,4,#,2,#,5,#,6,#,1,#,4,#,3,#
+     * #,#,#,4,4,#,#,#,6,5,2,#,#,4,#,3,1
      */
-    static void demo() {
+    static TreeNode returnTree() {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
+        root.right.left = new TreeNode(4);
+
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
-        root.left.left.right = new TreeNode(6);
-        System.out.println(BFS(root));
+        root.left.right.right = new TreeNode(6);
+        root.left.left.right = new TreeNode(4);
+       return root;
+    }
+    static void demo() {
+        System.out.println(BFS(returnTree()));
     }
 
     /**
