@@ -5,7 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * DFS  回溯  深度优先 depth
+ * DFS  回溯  深度优先 depth 递归
+ *  Breadth Depth Search
  */
 public class ccc {
     static List<List<Integer>> res = new LinkedList<>();

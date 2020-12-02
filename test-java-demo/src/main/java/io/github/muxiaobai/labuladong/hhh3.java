@@ -3,6 +3,7 @@ package io.github.muxiaobai.labuladong;
 
 /**
  * 构造二叉树
+ * 从 前中序  中后序  数组中 生成二叉树
  **/
 public class hhh3 {
 
