@@ -14,7 +14,7 @@ public class hhh {
         System.out.println(count(root));
         System.out.println(traverseb(root));
         System.out.println(traversem(root));
-        System.out.println(traverse(root));
+        System.out.println(traversee(root));
     }
 
     /**
@@ -87,14 +87,14 @@ public class hhh {
      * @param root
      * @return
      */
-    public static String traverse(TreeNode root) {
+    public static String traversee(TreeNode root) {
         // 对于空节点，可以用一个特殊字符表示
         if (root == null) {
             return "#";
         }
         // 将左右子树序列化成字符串
-        String left = traverse(root.left);
-        String right = traverse(root.right);
+        String left = traversee(root.left);
+        String right = traversee(root.right);
         /* 后序遍历代码位置 */
         // 左右子树加上自己，就是以自己为根的二叉树序列化结果
         String subTree = left + "," + right + "," + root.val;

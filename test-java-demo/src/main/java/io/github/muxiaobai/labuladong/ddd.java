@@ -364,7 +364,27 @@ public class ddd {
         root.left.left.right = new TreeNode(4);
         return root;
     }
-
+    /**
+     * 搜索树
+     * *        4
+     * *    2        6
+     * *  1  3      n  7
+     * *  nn  nn        nn
+     *
+     *
+     * 4,2,1,#,#,3,#,#,6,#,7,#,#
+     * #,1,#,2,#,3,#,4,#,6,#,7,#  有顺序
+     * #,#,1,#,#,3,2,#,#,#,7,6,4
+     */
+    static TreeNode returnSearchTree() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+        root.right = new TreeNode(6);
+        root.right.right= new TreeNode(7);
+        return root;
+    }
     static void demo() {
         System.out.println(BFS(returnTree()));
     }
@@ -412,6 +432,7 @@ class TreeNode {
 
 
     TreeNode() {
+
     }
 
     TreeNode(int val) {
