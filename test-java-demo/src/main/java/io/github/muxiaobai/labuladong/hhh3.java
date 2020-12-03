@@ -28,7 +28,8 @@ public class hhh3 {
          */
         System.out.println(buildTree(pre, mid));
         System.out.println(buildTree2(mid, post));
-        System.out.println();
+        System.out.println(hhh.traversem(ddd.returnTree()));
+
     }
 
     /**
@@ -78,7 +79,7 @@ public class hhh3 {
      * @return
      */
     static TreeNode buildTree(int[] preorder, int[] inorder) {
-        return buildTree(preorder, inorder, 0, inorder.length - 1, 0, inorder.length - 1);
+        return buildTree(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
     }
 
     static TreeNode buildTree(int[] preorder, int[] inorder, int prestart, int preend, int instart, int inend) {
@@ -128,5 +129,7 @@ public class hhh3 {
         root.right = buildTree2(inorder, postorder, index + 1, inend, poststart + (index - instart), postend - 1);
         return root;
     }
+
+
 }
 

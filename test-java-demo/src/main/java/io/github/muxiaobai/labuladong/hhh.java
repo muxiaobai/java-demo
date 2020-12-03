@@ -3,7 +3,7 @@ package io.github.muxiaobai.labuladong;
 
 /**
  * 二叉树
- *  前中后遍历
+ * 前中后遍历
  * <p>
  * 遍历
  **/
@@ -15,6 +15,7 @@ public class hhh {
         System.out.println(traverseb(root));
         System.out.println(traversem(root));
         System.out.println(traversee(root));
+
     }
 
     /**
@@ -37,12 +38,13 @@ public class hhh {
 
     /**
      * 先序遍历
-     *144
+     * 144
+     * <p>
+     * 作者：LeetCode-Solution
+     * 链接：https://leetcode-cn.com/problems/binary-tree-preorder-traversal
+     * 来源：力扣（LeetCode）
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
      *
-     作者：LeetCode-Solution
-     链接：https://leetcode-cn.com/problems/binary-tree-preorder-traversal
-     来源：力扣（LeetCode）
-     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
      * @param root
      * @return
      */
