@@ -1,6 +1,5 @@
 package io.github.muxiaobai.labuladong;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,9 +11,9 @@ import java.util.List;
  * <p>
  * 二叉树的序列化和反序列化
  * 直接使用hhh和hhh3 的 前序遍历，成一个完全而查实，再从前序遍历 生成完全二叉树
- *
+ * <p>
  * 297. 二叉树的序列化与反序列化
- *
+ * <p>
  * https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/
  */
 public class hhh5 {
@@ -33,19 +32,19 @@ public class hhh5 {
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
         String[] str = data.split(",");
-        return buildTree(new LinkedList<String>(Arrays.asList(str)) );
+        return buildTree(new LinkedList<String>(Arrays.asList(str)));
     }
 
     /**
-     *
-     *类似于一个完全二叉树
+     * 类似于一个完全二叉树
      * 不完全的地方用#代替
+     *
      * @param li
      * @return
      */
-    TreeNode buildTree(List<String> li){
+    TreeNode buildTree(List<String> li) {
         //里的li.get(0) 不会越界，因为每一个List都有数据，如果是#的h话直接返回了
-        if(li.get(0).equals("#")){
+        if (li.get(0).equals("#")) {
             li.remove(0);
             return null;
         }
