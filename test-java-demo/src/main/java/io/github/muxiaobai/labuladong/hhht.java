@@ -25,6 +25,11 @@ package io.github.muxiaobai.labuladong;
  * 不根据ID键值查询的话，常用的查询列需要添加索引，那么就会生成该列和主键值的索引。
  *      因此主键列尽量小的话，其它索引文件就会小，那么每一页16k存的节点就会多，会用更少的页存储更多的数据
  *
+ * InnoDB参考java   ../java/mysql/InnoDBPageInfo.java
+ *
+ * https://www.jianshu.com/p/92d15df75027
+ * https://www.cnblogs.com/owenma/p/8723465.html
+ * https://blog.csdn.net/quitepig/article/details/8041308
  *
  *
  */
