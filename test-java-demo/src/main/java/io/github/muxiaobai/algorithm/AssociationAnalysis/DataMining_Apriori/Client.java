@@ -7,7 +7,6 @@ package io.github.muxiaobai.algorithm.AssociationAnalysis.DataMining_Apriori;
  */
 public class Client {
     public static void main(String[] args) {
-        System.out.println(Client.class.getClassLoader().getResource("").getPath());
         String filePath = Client.class.getClassLoader().getResource("").getPath() + "\\io\\github\\muxiaobai" +
                 "\\algorithm\\AssociationAnalysis\\DataMining_Apriori\\testInput.txt";
 //
