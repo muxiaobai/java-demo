@@ -35,7 +35,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-          server-id: releases
+          server-id: oss
           # Nexus用户名环境变量
           server-username:  ${{ secrets.NEXUS_USERNAME }}
           # Nexus密码环境变量
