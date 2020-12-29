@@ -11,7 +11,7 @@
 </developers>
   <groupId>io.github.muxiaobai</groupId>
   <artifactId>java-demo</artifactId>
-  <version>1.0.0-RELEASE</version>
+  <version>1.0.1-RELEASE</version>
     <modules>
         <module>test-common-demo</module>
         <module>test-java-demo</module>
