@@ -68,7 +68,7 @@ public class Record {
     public String getRecordDecisionClass() {
         String value = null;
 
-        value = attrValues.get(DataMining_RoughSets.RoughSetsTool.DECISION_ATTR_NAME);
+        value = attrValues.get(RoughSetsTool.DECISION_ATTR_NAME);
 
         return value;
     }
@@ -85,13 +85,13 @@ public class Record {
         String value = null;
         String decisionValue;
 
-        decisionValue = attrValues.get(DataMining_RoughSets.RoughSetsTool.DECISION_ATTR_NAME);
+        decisionValue = attrValues.get(RoughSetsTool.DECISION_ATTR_NAME);
         ruleStr += "属性";
         for (Map.Entry entry : this.attrValues.entrySet()) {
             attrName = (String) entry.getKey();
             value = (String) entry.getValue();
 
-            if (attrName.equals(DataMining_RoughSets.RoughSetsTool.DECISION_ATTR_NAME)
+            if (attrName.equals(RoughSetsTool.DECISION_ATTR_NAME)
                     || reductAttr.contains(attrName) || value.equals(name)) {
                 continue;
             }
