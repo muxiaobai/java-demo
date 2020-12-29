@@ -56,7 +56,7 @@ jobs:
           #mvn javadoc:jar source:jar deploy -P release -Darguments="gpg.passphrase=${NEXUS_GPG_PASSPHRASE}"
           mvn clean javadoc:jar source:jar deploy
       - name: Release on nexus
-        uses: monkeyWie/maven-nexus-release@v1
+        uses: monkeyWie/maven-nexus-release@v1.0.0
         with:
           # Nexus用户名
           maven-repo-server-username: ${{ secrets.NEXUS_USERNAME }}
