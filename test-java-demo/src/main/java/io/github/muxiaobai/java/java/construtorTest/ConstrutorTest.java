@@ -3,8 +3,8 @@ package io.github.muxiaobai.java.java.construtorTest;
 /**
  * 
  * @author zhang
- * @Date 2016年7月22日 下午4:06:24
- * @doing
+ * @date 2016年7月22日 下午4:06:24
+ *
  */
 
 public class ConstrutorTest {

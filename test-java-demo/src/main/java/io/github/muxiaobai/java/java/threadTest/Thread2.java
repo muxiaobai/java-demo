@@ -4,8 +4,8 @@ package io.github.muxiaobai.java.java.threadTest;
  * 线程不安全
  *
  * @author zhang
- * @Date 2016年7月23日 上午11:24:34
- * @doing
+ * @date 2016年7月23日 上午11:24:34
+ *
  */
 public class Thread2 {
     public void m4t1() {

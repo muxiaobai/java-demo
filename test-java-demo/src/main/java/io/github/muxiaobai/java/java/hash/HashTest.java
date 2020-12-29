@@ -3,8 +3,8 @@ package io.github.muxiaobai.java.java.hash;
 /** 
  * 
  * @author zhang
- * @Date  2016年7月21日 下午4:57:38
- * @doing 
+ * @date  2016年7月21日 下午4:57:38
+ *
  */
 
 public class HashTest {

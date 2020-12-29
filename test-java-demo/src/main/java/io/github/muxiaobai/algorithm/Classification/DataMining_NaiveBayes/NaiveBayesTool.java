@@ -99,7 +99,7 @@ public class NaiveBayesTool {
 	 *            属性条件
 	 * @param classType
 	 *            分类的类型
-	 * @return
+	 * @return double
 	 */
 	private double computeConditionProbably(String condition, String classType) {
 		// 条件计数器
@@ -149,7 +149,7 @@ public class NaiveBayesTool {
 	 * 
 	 * @param condition
 	 *            条件
-	 * @return
+	 * @return int
 	 */
 	private int getConditionAttrName(String condition) {
 		// 条件所属属性名

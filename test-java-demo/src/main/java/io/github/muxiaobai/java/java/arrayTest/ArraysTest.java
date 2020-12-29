@@ -5,8 +5,8 @@ import java.util.Arrays;
 /** 
  * 
  * @author zhang
- * @Date  2018年7月22日 下午2:10:58
- * @doing 
+ * @date  2018年7月22日 下午2:10:58
+ *  ArraysTest
  */
 
 public class ArraysTest {

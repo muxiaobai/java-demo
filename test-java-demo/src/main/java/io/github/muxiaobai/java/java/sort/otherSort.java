@@ -13,14 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ClassName:otherSort <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2017年9月18日 上午10:10:33 <br/>
+ * ClassName:otherSort
+ * Function: TODO ADD FUNCTION.
+ * Reason:	 TODO ADD REASON.
+ * Date:     2017年9月18日 上午10:10:33
  * @author   Mu Xiaobai
  * @version  归并 基数/桶  计数
  * @since    JDK 1.8
- * @see 	 
  */
 public class otherSort {
     public static void main(String[] args) {

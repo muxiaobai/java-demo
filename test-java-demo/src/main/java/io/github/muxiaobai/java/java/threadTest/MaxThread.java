@@ -6,8 +6,8 @@ package io.github.muxiaobai.java.java.threadTest;
  *  1M   1557
  *  2M
  * @author zhang
- * @Date 2016年7月23日 上午11:24:34
- * @doing
+ * @date 2016年7月23日 上午11:24:34
+ *
  */
 public class MaxThread {
 

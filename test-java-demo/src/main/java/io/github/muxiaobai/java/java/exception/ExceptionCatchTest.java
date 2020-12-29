@@ -6,8 +6,8 @@ import java.io.InputStream;
 /**
  * 
  * @author zhang
- * @Date 2016年7月20日 下午1:59:25
- * @doing
+ * @date 2016年7月20日 下午1:59:25
+ *
  */
 
 public class ExceptionCatchTest {

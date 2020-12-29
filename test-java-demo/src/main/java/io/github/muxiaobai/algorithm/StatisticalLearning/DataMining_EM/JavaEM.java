@@ -9,14 +9,14 @@
 
 package io.github.muxiaobai.algorithm.StatisticalLearning.DataMining_EM;
 /**
- * ClassName:JavaEMMining <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2017年10月9日 下午3:48:53 <br/>
+ * ClassName:JavaEMMining
+ * Function: TODO ADD FUNCTION.
+ * Reason:	 TODO ADD REASON.
+ * Date:     2017年10月9日 下午3:48:53
  * @author   Mu Xiaobai
  * @version  
  * @since    JDK 1.8
- * @see 	 
+ * @see 	 java.lang.Math
  */
 public class JavaEM {
     public static void main(String[] args) {

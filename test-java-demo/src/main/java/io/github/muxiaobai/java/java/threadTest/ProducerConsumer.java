@@ -3,8 +3,8 @@ package io.github.muxiaobai.java.java.threadTest;
 /** 
  * 
  * @author zhang
- * @Date  2016年7月22日 下午4:03:07
- * @doing 
+ * @date  2016年7月22日 下午4:03:07
+ *
  */
 
 public class ProducerConsumer {

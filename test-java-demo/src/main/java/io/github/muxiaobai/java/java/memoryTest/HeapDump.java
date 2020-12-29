@@ -13,14 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ClassName:HeapDump <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2017年11月22日 下午3:16:20 <br/>
+ * ClassName:HeapDump
+ * Function: TODO ADD FUNCTION.
+ * Reason:	 TODO ADD REASON.
+ * @date    2017年11月22日 下午3:16:20
  * @author   Mu Xiaobai
- * @version  
+ * @version  1.8
  * @since    JDK 1.8
- * @see 	 
  */
 public class HeapDump {
         public static void main(String[] args) {  

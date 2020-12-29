@@ -1,4 +1,4 @@
-package DataMining_RoughSets;
+package io.github.muxiaobai.algorithm.RoughSets.DataMining_RoughSets;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -6,100 +6,100 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Êı¾İ¼ÇÂ¼£¬°üº¬ÕâÌõ¼ÇÂ¼ËùÓĞÊôĞÔ
- * 
+ * æ•°æ®è®°å½•ï¼ŒåŒ…å«è¿™æ¡è®°å½•æ‰€æœ‰å±æ€§
+ *
  * @author lyq
- * 
+ *
  */
 public class Record {
-	// ¼ÇÂ¼Ãû³Æ
-	private String name;
-	// ¼ÇÂ¼ÊôĞÔ¼üÖµ¶Ô
-	private HashMap<String, String> attrValues;
+    // è®°å½•åç§°
+    private String name;
+    // è®°å½•å±æ€§é”®å€¼å¯¹
+    private HashMap<String, String> attrValues;
 
-	public Record(String name, HashMap<String, String> attrValues) {
-		this.name = name;
-		this.attrValues = attrValues;
-	}
+    public Record(String name, HashMap<String, String> attrValues) {
+        this.name = name;
+        this.attrValues = attrValues;
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    public String getName() {
+        return this.name;
+    }
 
-	/**
-	 * ´ËÊı¾İÊÇ·ñ°üº¬´ËÊôĞÔÖµ
-	 * 
-	 * @param attr
-	 *            ´ıÅĞ¶ÏÊôĞÔÖµ
-	 * @return
-	 */
-	public boolean isContainedAttr(String attr) {
-		boolean isContained = false;
+    /**
+     * æ­¤æ•°æ®æ˜¯å¦åŒ…å«æ­¤å±æ€§å€¼
+     *
+     * @param attr
+     *            å¾…åˆ¤æ–­å±æ€§å€¼
+     * @return
+     */
+    public boolean isContainedAttr(String attr) {
+        boolean isContained = false;
 
-		if (attrValues.containsValue(attr)) {
-			isContained = true;
-		}
+        if (attrValues.containsValue(attr)) {
+            isContained = true;
+        }
 
-		return isContained;
-	}
+        return isContained;
+    }
 
-	/**
-	 * ÅĞ¶ÏÊı¾İ¼ÇÂ¼ÊÇ·ñÊÇÍ¬Ò»Ìõ¼ÇÂ¼£¬¸ù¾İÊı¾İÃû³ÆÀ´ÅĞ¶Ï
-	 * 
-	 * @param record
-	 *            Ä¿±ê±È½Ï¶ÔÏó
-	 * @return
-	 */
-	public boolean isRecordSame(Record record) {
-		boolean isSame = false;
+    /**
+     * åˆ¤æ–­æ•°æ®è®°å½•æ˜¯å¦æ˜¯åŒä¸€æ¡è®°å½•ï¼Œæ ¹æ®æ•°æ®åç§°æ¥åˆ¤æ–­
+     *
+     * @param record
+     *            ç›®æ ‡æ¯”è¾ƒå¯¹è±¡
+     * @return
+     */
+    public boolean isRecordSame(Record record) {
+        boolean isSame = false;
 
-		if (this.name.equals(record.name)) {
-			isSame = true;
-		}
+        if (this.name.equals(record.name)) {
+            isSame = true;
+        }
 
-		return isSame;
-	}
+        return isSame;
+    }
 
-	/**
-	 * Êı¾İµÄ¾ö²ßÊôĞÔ·ÖÀà
-	 * 
-	 * @return
-	 */
-	public String getRecordDecisionClass() {
-		String value = null;
+    /**
+     * æ•°æ®çš„å†³ç­–å±æ€§åˆ†ç±»
+     *
+     * @return
+     */
+    public String getRecordDecisionClass() {
+        String value = null;
 
-		value = attrValues.get(RoughSetsTool.DECISION_ATTR_NAME);
+        value = attrValues.get(DataMining_RoughSets.RoughSetsTool.DECISION_ATTR_NAME);
 
-		return value;
-	}
+        return value;
+    }
 
-	/**
-	 * ¸ù¾İÔ¼¼òÊôĞÔÊä³ö¾ö²ß¹æÔò
-	 * 
-	 * @param reductAttr
-	 *            Ô¼¼òÊôĞÔ¼¯ºÏ
-	 */
-	public String getDecisionRule(ArrayList<String> reductAttr) {
-		String ruleStr = "";
-		String attrName = null;
-		String value = null;
-		String decisionValue;
+    /**
+     * æ ¹æ®çº¦ç®€å±æ€§è¾“å‡ºå†³ç­–è§„åˆ™
+     *
+     * @param reductAttr
+     *            çº¦ç®€å±æ€§é›†åˆ
+     */
+    public String getDecisionRule(ArrayList<String> reductAttr) {
+        String ruleStr = "";
+        String attrName = null;
+        String value = null;
+        String decisionValue;
 
-		decisionValue = attrValues.get(RoughSetsTool.DECISION_ATTR_NAME);
-		ruleStr += "ÊôĞÔ";
-		for (Map.Entry entry : this.attrValues.entrySet()) {
-			attrName = (String) entry.getKey();
-			value = (String) entry.getValue();
+        decisionValue = attrValues.get(DataMining_RoughSets.RoughSetsTool.DECISION_ATTR_NAME);
+        ruleStr += "å±æ€§";
+        for (Map.Entry entry : this.attrValues.entrySet()) {
+            attrName = (String) entry.getKey();
+            value = (String) entry.getValue();
 
-			if (attrName.equals(RoughSetsTool.DECISION_ATTR_NAME)
-					|| reductAttr.contains(attrName) || value.equals(name)) {
-				continue;
-			}
+            if (attrName.equals(DataMining_RoughSets.RoughSetsTool.DECISION_ATTR_NAME)
+                    || reductAttr.contains(attrName) || value.equals(name)) {
+                continue;
+            }
 
-			ruleStr += MessageFormat.format("{0}={1},", attrName, value);
-		}
-		ruleStr += "ËûµÄ·ÖÀàÎª" + decisionValue;
-		
-		return ruleStr;
-	}
+            ruleStr += MessageFormat.format("{0}={1},", attrName, value);
+        }
+        ruleStr += "ä»–çš„åˆ†ç±»ä¸º" + decisionValue;
+
+        return ruleStr;
+    }
 }

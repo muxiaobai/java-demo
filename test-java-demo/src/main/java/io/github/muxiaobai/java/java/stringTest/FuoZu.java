@@ -5,8 +5,8 @@ import java.util.Random;
 /** 
  * 
  * @author zhang
- * @Date  2016年9月17日 上午8:08:15
- * @doing 
+ * @date  2016年9月17日 上午8:08:15
+ *
  */
 
 public class FuoZu {

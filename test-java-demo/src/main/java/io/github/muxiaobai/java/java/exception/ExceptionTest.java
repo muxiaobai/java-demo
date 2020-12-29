@@ -3,8 +3,8 @@ package io.github.muxiaobai.java.java.exception;
 /**
  * 
  * @author zhang
- * @Date 2016年7月20日 下午1:59:25
- * @doing
+ * @date 2016年7月20日 下午1:59:25
+ *
  */
 
 public class ExceptionTest {

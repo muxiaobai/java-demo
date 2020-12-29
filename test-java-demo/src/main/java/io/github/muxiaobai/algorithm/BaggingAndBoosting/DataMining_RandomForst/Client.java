@@ -10,7 +10,8 @@ import java.text.MessageFormat;
  */
 public class Client {
     public static void main(String[] args) {
-        String filePath = "E:\\CourseExercises\\java\\ProjectTest\\src\\io.github.muxiaobai.algorithm\\BaggingAndBoosting\\DataMining_RandomForst\\input.txt";
+        String filePath = Client.class.getClassLoader().getResource("").getPath() + "\\io\\github\\muxiaobai" +
+                "\\algorithm\\BaggingAndBoosting\\DataMining_RandomForst\\input.txt";
         
         String queryStr = "Age=Youth,Income=Low,Student=No,CreditRating=Fair";
         String resultClassType = "";

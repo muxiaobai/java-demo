@@ -15,14 +15,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * ClassName:Response <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2018年4月12日 下午3:00:18 <br/>
+ * ClassName:Response
+ * Function: TODO ADD FUNCTION.
+ * Reason:	 TODO ADD REASON.
+ * Date:     2018年4月12日 下午3:00:18
  * @author   Mu Xiaobai
  * @version  
  * @since    JDK 1.8
- * @see 	 
+ * @see 	 java.io.File
  */
 public class Response {
     public static final int BUFFER_SIZE = 2048;

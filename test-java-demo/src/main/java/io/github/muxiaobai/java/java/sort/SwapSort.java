@@ -9,14 +9,13 @@
 
 package io.github.muxiaobai.java.java.sort;
 /**
- * ClassName:SwapSort <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2017年9月11日 下午5:00:14 <br/>
+ * ClassName:SwapSort
+ * Function: TODO ADD FUNCTION.
+ * Reason:	 TODO ADD REASON.
+ * Date:     2017年9月11日 下午5:00:14
  * @author   Lenovo
  * @version   冒泡  快速排序
  * @since    JDK 1.8
- * @see 	 
  */
 public class SwapSort {
     public static void main(String[] args) {

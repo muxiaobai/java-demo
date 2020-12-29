@@ -2,10 +2,10 @@ package io.github.muxiaobai.java.java.numberTest;
 
 /** 
  * 
- * ClassName: LongTest <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason: TODO ADD REASON(可选). <br/>
- * date: 2019年2月22日 下午5:39:43 <br/>
+ * ClassName: LongTest
+ * Function: TODO ADD FUNCTION.
+ * Reason: TODO ADD REASON(可选).
+ * date: 2019年2月22日 下午5:39:43
  *
  * @author  Mu Xiaobai
  * @version 

@@ -3,8 +3,8 @@ package io.github.muxiaobai.java.java.stringTest;
 /** 
  * 
  * @author zhang
- * @Date  2016年7月22日 下午3:27:3i
- * @doing 
+ * @date  2016年7月22日 下午3:27:3i
+ *
  */
 
 public class NumberTest {

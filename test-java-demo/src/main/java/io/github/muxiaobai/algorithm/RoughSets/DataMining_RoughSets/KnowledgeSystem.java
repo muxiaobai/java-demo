@@ -1,195 +1,195 @@
-package DataMining_RoughSets;
+package io.github.muxiaobai.algorithm.RoughSets.DataMining_RoughSets;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * ÖªÊ¶ÏµÍ³
- * 
+ * çŸ¥è¯†ç³»ç»Ÿ
+ *
  * @author lyq
- * 
+ *
  */
 public class KnowledgeSystem {
-	// ÖªÊ¶ÏµÍ³ÄÚµÄ¼¯ºÏ
-	ArrayList<RecordCollection> ksCollections;
+    // çŸ¥è¯†ç³»ç»Ÿå†…çš„é›†åˆ
+    ArrayList<RecordCollection> ksCollections;
 
-	public KnowledgeSystem(ArrayList<RecordCollection> ksCollections) {
-		this.ksCollections = ksCollections;
-	}
+    public KnowledgeSystem(ArrayList<RecordCollection> ksCollections) {
+        this.ksCollections = ksCollections;
+    }
 
-	/**
-	 * »ñÈ¡¼¯ºÏµÄÉÏ½üËÆ¼¯ºÏ
-	 * 
-	 * @param rc
-	 *            Ô­Ê¼¼¯ºÏ
-	 * @return
-	 */
-	public RecordCollection getUpSimilarRC(RecordCollection rc) {
-		RecordCollection resultRc = null;
-		ArrayList<String> nameArray;
-		ArrayList<String> targetArray;
-		ArrayList<RecordCollection> copyRcs = new ArrayList<>();
-		ArrayList<RecordCollection> deleteRcs = new ArrayList<>();
-		targetArray = rc.getRecordNames();
+    /**
+     * è·å–é›†åˆçš„ä¸Šè¿‘ä¼¼é›†åˆ
+     *
+     * @param rc
+     *            åŸå§‹é›†åˆ
+     * @return
+     */
+    public RecordCollection getUpSimilarRC(RecordCollection rc) {
+        RecordCollection resultRc = null;
+        ArrayList<String> nameArray;
+        ArrayList<String> targetArray;
+        ArrayList<RecordCollection> copyRcs = new ArrayList<>();
+        ArrayList<RecordCollection> deleteRcs = new ArrayList<>();
+        targetArray = rc.getRecordNames();
 
-		// ×öÒ»¸ö¼¯ºÏ¿½±´
-		for (RecordCollection recordCollection : ksCollections) {
-			copyRcs.add(recordCollection);
-		}
+        // åšä¸€ä¸ªé›†åˆæ‹·è´
+        for (RecordCollection recordCollection : ksCollections) {
+            copyRcs.add(recordCollection);
+        }
 
-		for (RecordCollection recordCollection : copyRcs) {
-			nameArray = recordCollection.getRecordNames();
+        for (RecordCollection recordCollection : copyRcs) {
+            nameArray = recordCollection.getRecordNames();
 
-			if (strIsContained(targetArray, nameArray)) {
-				removeOverLaped(targetArray, nameArray);
-				deleteRcs.add(recordCollection);
+            if (strIsContained(targetArray, nameArray)) {
+                removeOverLaped(targetArray, nameArray);
+                deleteRcs.add(recordCollection);
 
-				if (resultRc == null) {
-					resultRc = recordCollection;
-				} else {
-					// ½øĞĞ²¢ÔËËã
-					resultRc = resultRc.unionCal(recordCollection);
-				}
+                if (resultRc == null) {
+                    resultRc = recordCollection;
+                } else {
+                    // è¿›è¡Œå¹¶è¿ç®—
+                    resultRc = resultRc.unionCal(recordCollection);
+                }
 
-				if (targetArray.size() == 0) {
-					break;
-				}
-			}
-		}
-		//È¥³ıÒÑ¾­Ìí¼Ó¹ıµÄ¼¯ºÏ
-		copyRcs.removeAll(deleteRcs);
+                if (targetArray.size() == 0) {
+                    break;
+                }
+            }
+        }
+        //å»é™¤å·²ç»æ·»åŠ è¿‡çš„é›†åˆ
+        copyRcs.removeAll(deleteRcs);
 
-		if (targetArray.size() > 0) {
-			// ËµÃ÷ÒÑ¾­ÍêÈ«»¹Î´ÕÒÈ«ÉÏ½üËÆµÄ¼¯ºÏ
-			for (RecordCollection recordCollection : copyRcs) {
-				nameArray = recordCollection.getRecordNames();
+        if (targetArray.size() > 0) {
+            // è¯´æ˜å·²ç»å®Œå…¨è¿˜æœªæ‰¾å…¨ä¸Šè¿‘ä¼¼çš„é›†åˆ
+            for (RecordCollection recordCollection : copyRcs) {
+                nameArray = recordCollection.getRecordNames();
 
-				if (strHasOverlap(targetArray, nameArray)) {
-					removeOverLaped(targetArray, nameArray);
+                if (strHasOverlap(targetArray, nameArray)) {
+                    removeOverLaped(targetArray, nameArray);
 
-					if (resultRc == null) {
-						resultRc = recordCollection;
-					} else {
-						// ½øĞĞ²¢ÔËËã
-						resultRc = resultRc.unionCal(recordCollection);
-					}
+                    if (resultRc == null) {
+                        resultRc = recordCollection;
+                    } else {
+                        // è¿›è¡Œå¹¶è¿ç®—
+                        resultRc = resultRc.unionCal(recordCollection);
+                    }
 
-					if (targetArray.size() == 0) {
-						break;
-					}
-				}
-			}
-		}
+                    if (targetArray.size() == 0) {
+                        break;
+                    }
+                }
+            }
+        }
 
-		return resultRc;
-	}
+        return resultRc;
+    }
 
-	/**
-	 * »ñÈ¡¼¯ºÏµÄÏÂ½üËÆ¼¯ºÏ
-	 * 
-	 * @param rc
-	 *            Ô­Ê¼¼¯ºÏ
-	 * @return
-	 */
-	public RecordCollection getDownSimilarRC(RecordCollection rc) {
-		RecordCollection resultRc = null;
-		ArrayList<String> nameArray;
-		ArrayList<String> targetArray;
-		targetArray = rc.getRecordNames();
+    /**
+     * è·å–é›†åˆçš„ä¸‹è¿‘ä¼¼é›†åˆ
+     *
+     * @param rc
+     *            åŸå§‹é›†åˆ
+     * @return
+     */
+    public RecordCollection getDownSimilarRC(RecordCollection rc) {
+        RecordCollection resultRc = null;
+        ArrayList<String> nameArray;
+        ArrayList<String> targetArray;
+        targetArray = rc.getRecordNames();
 
-		for (RecordCollection recordCollection : ksCollections) {
-			nameArray = recordCollection.getRecordNames();
+        for (RecordCollection recordCollection : ksCollections) {
+            nameArray = recordCollection.getRecordNames();
 
-			if (strIsContained(targetArray, nameArray)) {
-				removeOverLaped(targetArray, nameArray);
+            if (strIsContained(targetArray, nameArray)) {
+                removeOverLaped(targetArray, nameArray);
 
-				if (resultRc == null) {
-					resultRc = recordCollection;
-				} else {
-					// ½øĞĞ²¢ÔËËã
-					resultRc = resultRc.unionCal(recordCollection);
-				}
+                if (resultRc == null) {
+                    resultRc = recordCollection;
+                } else {
+                    // è¿›è¡Œå¹¶è¿ç®—
+                    resultRc = resultRc.unionCal(recordCollection);
+                }
 
-				if (targetArray.size() == 0) {
-					break;
-				}
-			}
-		}
+                if (targetArray.size() == 0) {
+                    break;
+                }
+            }
+        }
 
-		return resultRc;
-	}
+        return resultRc;
+    }
 
-	/**
-	 * ÅĞ¶Ï2¸ö×Ö·ûÊı×éÖ®¼äÊÇ·ñÓĞ½»¼¯
-	 * 
-	 * @param str1
-	 *            ×Ö·ûÁĞ±í1
-	 * @param str2
-	 *            ×Ö·ûÁĞ±í2
-	 * @return
-	 */
-	public boolean strHasOverlap(ArrayList<String> str1, ArrayList<String> str2) {
-		boolean hasOverlap = false;
+    /**
+     * åˆ¤æ–­2ä¸ªå­—ç¬¦æ•°ç»„ä¹‹é—´æ˜¯å¦æœ‰äº¤é›†
+     *
+     * @param str1
+     *            å­—ç¬¦åˆ—è¡¨1
+     * @param str2
+     *            å­—ç¬¦åˆ—è¡¨2
+     * @return
+     */
+    public boolean strHasOverlap(ArrayList<String> str1, ArrayList<String> str2) {
+        boolean hasOverlap = false;
 
-		for (String s1 : str1) {
-			for (String s2 : str2) {
-				if (s1.equals(s2)) {
-					hasOverlap = true;
-					break;
-				}
-			}
+        for (String s1 : str1) {
+            for (String s2 : str2) {
+                if (s1.equals(s2)) {
+                    hasOverlap = true;
+                    break;
+                }
+            }
 
-			if (hasOverlap) {
-				break;
-			}
-		}
+            if (hasOverlap) {
+                break;
+            }
+        }
 
-		return hasOverlap;
-	}
+        return hasOverlap;
+    }
 
-	/**
-	 * ÅĞ¶Ï×Ö·û¼¯str2ÊÇ·ñÍêÈ«°üº¬ÓÚstr1ÖĞ
-	 * 
-	 * @param str1
-	 * @param str2
-	 * @return
-	 */
-	public boolean strIsContained(ArrayList<String> str1, ArrayList<String> str2) {
-		boolean isContained = false;
-		int count = 0;
+    /**
+     * åˆ¤æ–­å­—ç¬¦é›†str2æ˜¯å¦å®Œå…¨åŒ…å«äºstr1ä¸­
+     *
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public boolean strIsContained(ArrayList<String> str1, ArrayList<String> str2) {
+        boolean isContained = false;
+        int count = 0;
 
-		for (String s : str2) {
-			if (str1.contains(s)) {
-				count++;
-			}
-		}
+        for (String s : str2) {
+            if (str1.contains(s)) {
+                count++;
+            }
+        }
 
-		if (count == str2.size()) {
-			isContained = true;
-		}
+        if (count == str2.size()) {
+            isContained = true;
+        }
 
-		return isContained;
-	}
+        return isContained;
+    }
 
-	/**
-	 * ×Ö·ûÁĞ±íÒÆ³ı¹«¹²ÔªËØ
-	 * 
-	 * @param str1
-	 * @param str2
-	 */
-	public void removeOverLaped(ArrayList<String> str1, ArrayList<String> str2) {
-		ArrayList<String> deleteStrs = new ArrayList<>();
+    /**
+     * å­—ç¬¦åˆ—è¡¨ç§»é™¤å…¬å…±å…ƒç´ 
+     *
+     * @param str1
+     * @param str2
+     */
+    public void removeOverLaped(ArrayList<String> str1, ArrayList<String> str2) {
+        ArrayList<String> deleteStrs = new ArrayList<>();
 
-		for (String s1 : str1) {
-			for (String s2 : str2) {
-				if (s1.equals(s2)) {
-					deleteStrs.add(s1);
-					break;
-				}
-			}
-		}
+        for (String s1 : str1) {
+            for (String s2 : str2) {
+                if (s1.equals(s2)) {
+                    deleteStrs.add(s1);
+                    break;
+                }
+            }
+        }
 
-		// ½øĞĞ¹«¹²ÔªËØµÄÒÆ³ı
-		str1.removeAll(deleteStrs);
-	}
+        // è¿›è¡Œå…¬å…±å…ƒç´ çš„ç§»é™¤
+        str1.removeAll(deleteStrs);
+    }
 }

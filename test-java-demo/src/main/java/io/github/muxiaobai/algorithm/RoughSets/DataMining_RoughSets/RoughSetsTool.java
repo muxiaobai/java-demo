@@ -1,4 +1,7 @@
-package DataMining_RoughSets;
+package io.github.muxiaobai.algorithm.RoughSets.DataMining_RoughSets;
+
+import io.github.muxiaobai.algorithm.RoughSets.DataMining_RoughSets.KnowledgeSystem;
+import io.github.muxiaobai.algorithm.RoughSets.DataMining_RoughSets.RecordCollection;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,422 +12,422 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * ´Ö²Ú¼¯ÊôĞÔÔ¼¼òËã·¨¹¤¾ßÀà
- * 
+ * ç²—ç³™é›†å±æ€§çº¦ç®€ç®—æ³•å·¥å…·ç±»
+ *
  * @author lyq
- * 
+ *
  */
 public class RoughSetsTool {
-	// ¾ö²ßÊôĞÔÃû³Æ
-	public static String DECISION_ATTR_NAME;
+    // å†³ç­–å±æ€§åç§°
+    public static String DECISION_ATTR_NAME;
 
-	// ²âÊÔÊı¾İÎÄ¼şµØÖ·
-	private String filePath;
-	// Êı¾İÊôĞÔÁĞÃû³Æ
-	private String[] attrNames;
-	// ËùÓĞµÄÊı¾İ
-	private ArrayList<String[]> totalDatas;
-	// ËùÓĞµÄÊı¾İ¼ÇÂ¼,ÓëÉÏÃæµÄÇø±ğÊÇ¼ÇÂ¼µÄÊôĞÔÊÇ¿ÉÔ¼¼òµÄ£¬Ô­Ê¼Êı¾İÊÇ²»ÄÜ±äµÄ
-	private ArrayList<Record> totalRecords;
-	// Ìõ¼şÊôĞÔÍ¼
-	private HashMap<String, ArrayList<String>> conditionAttr;
-	// ÊôĞÔ¼ÇÂ¼¼¯ºÏ
-	private ArrayList<RecordCollection> collectionList;
+    // æµ‹è¯•æ•°æ®æ–‡ä»¶åœ°å€
+    private String filePath;
+    // æ•°æ®å±æ€§åˆ—åç§°
+    private String[] attrNames;
+    // æ‰€æœ‰çš„æ•°æ®
+    private ArrayList<String[]> totalDatas;
+    // æ‰€æœ‰çš„æ•°æ®è®°å½•,ä¸ä¸Šé¢çš„åŒºåˆ«æ˜¯è®°å½•çš„å±æ€§æ˜¯å¯çº¦ç®€çš„ï¼ŒåŸå§‹æ•°æ®æ˜¯ä¸èƒ½å˜çš„
+    private ArrayList<Record> totalRecords;
+    // æ¡ä»¶å±æ€§å›¾
+    private HashMap<String, ArrayList<String>> conditionAttr;
+    // å±æ€§è®°å½•é›†åˆ
+    private ArrayList<RecordCollection> collectionList;
 
-	public RoughSetsTool(String filePath) {
-		this.filePath = filePath;
-		readDataFile();
-	}
+    public RoughSetsTool(String filePath) {
+        this.filePath = filePath;
+        readDataFile();
+    }
 
-	/**
-	 * ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ
-	 */
-	private void readDataFile() {
-		File file = new File(filePath);
-		ArrayList<String[]> dataArray = new ArrayList<String[]>();
+    /**
+     * ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®
+     */
+    private void readDataFile() {
+        File file = new File(filePath);
+        ArrayList<String[]> dataArray = new ArrayList<String[]>();
 
-		try {
-			BufferedReader in = new BufferedReader(new FileReader(file));
-			String str;
-			String[] tempArray;
-			while ((str = in.readLine()) != null) {
-				tempArray = str.split(" ");
-				dataArray.add(tempArray);
-			}
-			in.close();
-		} catch (IOException e) {
-			e.getStackTrace();
-		}
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(file));
+            String str;
+            String[] tempArray;
+            while ((str = in.readLine()) != null) {
+                tempArray = str.split(" ");
+                dataArray.add(tempArray);
+            }
+            in.close();
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
 
-		String[] array;
-		Record tempRecord;
-		HashMap<String, String> attrMap;
-		ArrayList<String> attrList;
-		totalDatas = new ArrayList<>();
-		totalRecords = new ArrayList<>();
-		conditionAttr = new HashMap<>();
-		// ¸³ÖµÊôĞÔÃû³ÆĞĞ
-		attrNames = dataArray.get(0);
-		DECISION_ATTR_NAME = attrNames[attrNames.length - 1];
-		for (int j = 0; j < dataArray.size(); j++) {
-			array = dataArray.get(j);
-			totalDatas.add(array);
-			if (j == 0) {
-				// ¹ıÂËµôµÚÒ»ĞĞÁĞÃû³ÆÊı¾İ
-				continue;
-			}
+        String[] array;
+        Record tempRecord;
+        HashMap<String, String> attrMap;
+        ArrayList<String> attrList;
+        totalDatas = new ArrayList<>();
+        totalRecords = new ArrayList<>();
+        conditionAttr = new HashMap<>();
+        // èµ‹å€¼å±æ€§åç§°è¡Œ
+        attrNames = dataArray.get(0);
+        DECISION_ATTR_NAME = attrNames[attrNames.length - 1];
+        for (int j = 0; j < dataArray.size(); j++) {
+            array = dataArray.get(j);
+            totalDatas.add(array);
+            if (j == 0) {
+                // è¿‡æ»¤æ‰ç¬¬ä¸€è¡Œåˆ—åç§°æ•°æ®
+                continue;
+            }
 
-			attrMap = new HashMap<>();
-			for (int i = 0; i < attrNames.length; i++) {
-				attrMap.put(attrNames[i], array[i]);
+            attrMap = new HashMap<>();
+            for (int i = 0; i < attrNames.length; i++) {
+                attrMap.put(attrNames[i], array[i]);
 
-				// Ñ°ÕÒÌõ¼şÊôĞÔ
-				if (i > 0 && i < attrNames.length - 1) {
-					if (conditionAttr.containsKey(attrNames[i])) {
-						attrList = conditionAttr.get(attrNames[i]);
-						if (!attrList.contains(array[i])) {
-							attrList.add(array[i]);
-						}
-					} else {
-						attrList = new ArrayList<>();
-						attrList.add(array[i]);
-					}
-					conditionAttr.put(attrNames[i], attrList);
-				}
-			}
-			tempRecord = new Record(array[0], attrMap);
-			totalRecords.add(tempRecord);
-		}
-	}
+                // å¯»æ‰¾æ¡ä»¶å±æ€§
+                if (i > 0 && i < attrNames.length - 1) {
+                    if (conditionAttr.containsKey(attrNames[i])) {
+                        attrList = conditionAttr.get(attrNames[i]);
+                        if (!attrList.contains(array[i])) {
+                            attrList.add(array[i]);
+                        }
+                    } else {
+                        attrList = new ArrayList<>();
+                        attrList.add(array[i]);
+                    }
+                    conditionAttr.put(attrNames[i], attrList);
+                }
+            }
+            tempRecord = new Record(array[0], attrMap);
+            totalRecords.add(tempRecord);
+        }
+    }
 
-	/**
-	 * ½«Êı¾İ¼ÇÂ¼¸ù¾İÊôĞÔ·Ö¸îµ½¼¯ºÏÖĞ
-	 */
-	private void recordSpiltToCollection() {
-		String attrName;
-		ArrayList<String> attrList;
-		ArrayList<Record> recordList;
-		HashMap<String, String> collectionAttrValues;
-		RecordCollection collection;
-		collectionList = new ArrayList<>();
+    /**
+     * å°†æ•°æ®è®°å½•æ ¹æ®å±æ€§åˆ†å‰²åˆ°é›†åˆä¸­
+     */
+    private void recordSpiltToCollection() {
+        String attrName;
+        ArrayList<String> attrList;
+        ArrayList<Record> recordList;
+        HashMap<String, String> collectionAttrValues;
+        RecordCollection collection;
+        collectionList = new ArrayList<>();
 
-		for (Map.Entry entry : conditionAttr.entrySet()) {
-			attrName = (String) entry.getKey();
-			attrList = (ArrayList<String>) entry.getValue();
+        for (Map.Entry entry : conditionAttr.entrySet()) {
+            attrName = (String) entry.getKey();
+            attrList = (ArrayList<String>) entry.getValue();
 
-			for (String s : attrList) {
-				recordList = new ArrayList<>();
-				// Ñ°ÕÒÊôĞÔÎªsµÄÊı¾İ¼ÇÂ¼·ÖÈëµ½¼¯ºÏÖĞ
-				for (Record record : totalRecords) {
-					if (record.isContainedAttr(s)) {
-						recordList.add(record);
-					}
-				}
-				collectionAttrValues = new HashMap<>();
-				collectionAttrValues.put(attrName, s);
-				collection = new RecordCollection(collectionAttrValues,
-						recordList);
+            for (String s : attrList) {
+                recordList = new ArrayList<>();
+                // å¯»æ‰¾å±æ€§ä¸ºsçš„æ•°æ®è®°å½•åˆ†å…¥åˆ°é›†åˆä¸­
+                for (Record record : totalRecords) {
+                    if (record.isContainedAttr(s)) {
+                        recordList.add(record);
+                    }
+                }
+                collectionAttrValues = new HashMap<>();
+                collectionAttrValues.put(attrName, s);
+                collection = new RecordCollection(collectionAttrValues,
+                        recordList);
 
-				collectionList.add(collection);
-			}
-		}
-	}
+                collectionList.add(collection);
+            }
+        }
+    }
 
-	/**
-	 * ¹¹ÔìÊôĞÔ¼¯ºÏÍ¼
-	 * 
-	 * @param reductAttr
-	 *            ĞèÒªÔ¼¼òµÄÊôĞÔ
-	 * @return
-	 */
-	private HashMap<String, ArrayList<RecordCollection>> constructCollectionMap(
-			ArrayList<String> reductAttr) {
-		String currentAtttrName;
-		ArrayList<RecordCollection> cList;
-		// ¼¯ºÏÊôĞÔ¶ÔÓ¦Í¼
-		HashMap<String, ArrayList<RecordCollection>> collectionMap = new HashMap<>();
+    /**
+     * æ„é€ å±æ€§é›†åˆå›¾
+     *
+     * @param reductAttr
+     *            éœ€è¦çº¦ç®€çš„å±æ€§
+     * @return
+     */
+    private HashMap<String, ArrayList<RecordCollection>> constructCollectionMap(
+            ArrayList<String> reductAttr) {
+        String currentAtttrName;
+        ArrayList<RecordCollection> cList;
+        // é›†åˆå±æ€§å¯¹åº”å›¾
+        HashMap<String, ArrayList<RecordCollection>> collectionMap = new HashMap<>();
 
-		// ½ØÈ¡³öÌõ¼şÊôĞÔ²¿·Ö
-		for (int i = 1; i < attrNames.length - 1; i++) {
-			currentAtttrName = attrNames[i];
+        // æˆªå–å‡ºæ¡ä»¶å±æ€§éƒ¨åˆ†
+        for (int i = 1; i < attrNames.length - 1; i++) {
+            currentAtttrName = attrNames[i];
 
-			// ÅĞ¶Ï´ËÊôĞÔÁĞÊÇ·ñĞèÒªÔ¼¼ò
-			if (reductAttr != null && reductAttr.contains(currentAtttrName)) {
-				continue;
-			}
+            // åˆ¤æ–­æ­¤å±æ€§åˆ—æ˜¯å¦éœ€è¦çº¦ç®€
+            if (reductAttr != null && reductAttr.contains(currentAtttrName)) {
+                continue;
+            }
 
-			cList = new ArrayList<>();
+            cList = new ArrayList<>();
 
-			for (RecordCollection c : collectionList) {
-				if (c.isContainedAttrName(currentAtttrName)) {
-					cList.add(c);
-				}
-			}
+            for (RecordCollection c : collectionList) {
+                if (c.isContainedAttrName(currentAtttrName)) {
+                    cList.add(c);
+                }
+            }
 
-			collectionMap.put(currentAtttrName, cList);
-		}
+            collectionMap.put(currentAtttrName, cList);
+        }
 
-		return collectionMap;
-	}
+        return collectionMap;
+    }
 
-	/**
-	 * ¸ù¾İÒÑÓĞµÄ·ÖÁÑ¼¯ºÏ¼ÆËãÖªÊ¶ÏµÍ³
-	 */
-	private ArrayList<RecordCollection> computeKnowledgeSystem(
-			HashMap<String, ArrayList<RecordCollection>> collectionMap) {
-		String attrName = null;
-		ArrayList<RecordCollection> cList = null;
-		// ÖªÊ¶ÏµÍ³
-		ArrayList<RecordCollection> ksCollections;
+    /**
+     * æ ¹æ®å·²æœ‰çš„åˆ†è£‚é›†åˆè®¡ç®—çŸ¥è¯†ç³»ç»Ÿ
+     */
+    private ArrayList<RecordCollection> computeKnowledgeSystem(
+            HashMap<String, ArrayList<RecordCollection>> collectionMap) {
+        String attrName = null;
+        ArrayList<RecordCollection> cList = null;
+        // çŸ¥è¯†ç³»ç»Ÿ
+        ArrayList<RecordCollection> ksCollections;
 
-		ksCollections = new ArrayList<>();
+        ksCollections = new ArrayList<>();
 
-		// È¡³ö1Ïî
-		for (Map.Entry entry : collectionMap.entrySet()) {
-			attrName = (String) entry.getKey();
-			cList = (ArrayList<RecordCollection>) entry.getValue();
-			break;
-		}
-		collectionMap.remove(attrName);
+        // å–å‡º1é¡¹
+        for (Map.Entry entry : collectionMap.entrySet()) {
+            attrName = (String) entry.getKey();
+            cList = (ArrayList<RecordCollection>) entry.getValue();
+            break;
+        }
+        collectionMap.remove(attrName);
 
-		for (RecordCollection rc : cList) {
-			recurrenceComputeKS(ksCollections, collectionMap, rc);
-		}
+        for (RecordCollection rc : cList) {
+            recurrenceComputeKS(ksCollections, collectionMap, rc);
+        }
 
-		return ksCollections;
-	}
+        return ksCollections;
+    }
 
-	/**
-	 * µİ¹é¼ÆËãËùÓĞµÄÖªÊ¶ÏµÍ³£¬Í¨¹ı¼ÆËãËùÓĞ¼¯ºÏµÄ½»¼¯
-	 * 
-	 * @param ksCollection
-	 *            ÒÑ¾­ÇóµÃÖªÊ¶ÏµÍ³µÄ¼¯ºÏ
-	 * @param map
-	 *            »¹Î´Ôø½øĞĞ¹ı½»ÔËËãµÄ¼¯ºÏ
-	 * @param preCollection
-	 *            Ç°¸ö²½ÖèÖĞÒÑ¾­Í¨¹ı½»ÔËËã¼ÆËã³öµÄ¼¯ºÏ
-	 */
-	private void recurrenceComputeKS(ArrayList<RecordCollection> ksCollections,
-			HashMap<String, ArrayList<RecordCollection>> map,
-			RecordCollection preCollection) {
-		String attrName = null;
-		RecordCollection tempCollection;
-		ArrayList<RecordCollection> cList = null;
-		HashMap<String, ArrayList<RecordCollection>> mapCopy = new HashMap<>();
-		
-		//Èç¹ûÒÑ¾­Ã»ÓĞÊı¾İÁË£¬ÔòÖ±½ÓÌí¼Ó
-		if(map.size() == 0){
-			ksCollections.add(preCollection);
-			return;
-		}
+    /**
+     * é€’å½’è®¡ç®—æ‰€æœ‰çš„çŸ¥è¯†ç³»ç»Ÿï¼Œé€šè¿‡è®¡ç®—æ‰€æœ‰é›†åˆçš„äº¤é›†
+     *
+     * @param ksCollections s
+     *            å·²ç»æ±‚å¾—çŸ¥è¯†ç³»ç»Ÿçš„é›†åˆ
+     * @param map
+     *            è¿˜æœªæ›¾è¿›è¡Œè¿‡äº¤è¿ç®—çš„é›†åˆ
+     * @param preCollection
+     *            å‰ä¸ªæ­¥éª¤ä¸­å·²ç»é€šè¿‡äº¤è¿ç®—è®¡ç®—å‡ºçš„é›†åˆ
+     */
+    private void recurrenceComputeKS(ArrayList<RecordCollection> ksCollections,
+                                     HashMap<String, ArrayList<RecordCollection>> map,
+                                     RecordCollection preCollection) {
+        String attrName = null;
+        RecordCollection tempCollection;
+        ArrayList<RecordCollection> cList = null;
+        HashMap<String, ArrayList<RecordCollection>> mapCopy = new HashMap<>();
 
-		for (Map.Entry entry : map.entrySet()) {
-			cList = (ArrayList<RecordCollection>) entry.getValue();
-			mapCopy.put((String) entry.getKey(), cList);
-		}
+        //å¦‚æœå·²ç»æ²¡æœ‰æ•°æ®äº†ï¼Œåˆ™ç›´æ¥æ·»åŠ 
+        if(map.size() == 0){
+            ksCollections.add(preCollection);
+            return;
+        }
 
-		// È¡³ö1Ïî
-		for (Map.Entry entry : map.entrySet()) {
-			attrName = (String) entry.getKey();
-			cList = (ArrayList<RecordCollection>) entry.getValue();
-			break;
-		}
+        for (Map.Entry entry : map.entrySet()) {
+            cList = (ArrayList<RecordCollection>) entry.getValue();
+            mapCopy.put((String) entry.getKey(), cList);
+        }
 
-		mapCopy.remove(attrName);
-		for (RecordCollection rc : cList) {
-			// ÌôÑ¡´ËÊôĞÔµÄÒ»¸ö¼¯ºÏ½øĞĞ½»ÔËËã£¬È»ºóÔÙ´Îµİ¹é
-			tempCollection = preCollection.overlapCalculate(rc);
+        // å–å‡º1é¡¹
+        for (Map.Entry entry : map.entrySet()) {
+            attrName = (String) entry.getKey();
+            cList = (ArrayList<RecordCollection>) entry.getValue();
+            break;
+        }
 
-			if (tempCollection == null) {
-				continue;
-			}
+        mapCopy.remove(attrName);
+        for (RecordCollection rc : cList) {
+            // æŒ‘é€‰æ­¤å±æ€§çš„ä¸€ä¸ªé›†åˆè¿›è¡Œäº¤è¿ç®—ï¼Œç„¶åå†æ¬¡é€’å½’
+            tempCollection = preCollection.overlapCalculate(rc);
 
-			// Èç¹ûmapÖĞÒÑ¾­Ã»ÓĞÊı¾İÁË,ËµÃ÷µİ¹éµ½Í·ÁË
-			if (mapCopy.size() == 0) {
-				ksCollections.add(tempCollection);
-			} else {
-				recurrenceComputeKS(ksCollections, mapCopy, tempCollection);
-			}
-		}
-	}
+            if (tempCollection == null) {
+                continue;
+            }
 
-	/**
-	 * ½øĞĞ´Ö²Ú¼¯ÊôĞÔÔ¼¼òËã·¨
-	 */
-	public void findingReduct() {
-		RecordCollection[] sameClassRcs;
-		KnowledgeSystem ks;
-		ArrayList<RecordCollection> ksCollections;
-		// ´ıÔ¼¼òµÄÊôĞÔ
-		ArrayList<String> reductAttr = null;
-		ArrayList<String> attrNameList;
-		// ×îÖÕ¿ÉÔ¼¼òµÄÊôĞÔ×é
-		ArrayList<ArrayList<String>> canReductAttrs;
-		HashMap<String, ArrayList<RecordCollection>> collectionMap;
+            // å¦‚æœmapä¸­å·²ç»æ²¡æœ‰æ•°æ®äº†,è¯´æ˜é€’å½’åˆ°å¤´äº†
+            if (mapCopy.size() == 0) {
+                ksCollections.add(tempCollection);
+            } else {
+                recurrenceComputeKS(ksCollections, mapCopy, tempCollection);
+            }
+        }
+    }
 
-		sameClassRcs = selectTheSameClassRC();
-		// ÕâÀï½²Êı¾İ°´ÕÕ¸÷¸ö·ÖÀàµÄĞ¡ÊôĞÔ»®·ÖÁË9¸ö¼¯ºÏ
-		recordSpiltToCollection();
+    /**
+     * è¿›è¡Œç²—ç³™é›†å±æ€§çº¦ç®€ç®—æ³•
+     */
+    public void findingReduct() {
+        RecordCollection[] sameClassRcs;
+        KnowledgeSystem ks;
+        ArrayList<RecordCollection> ksCollections;
+        // å¾…çº¦ç®€çš„å±æ€§
+        ArrayList<String> reductAttr = null;
+        ArrayList<String> attrNameList;
+        // æœ€ç»ˆå¯çº¦ç®€çš„å±æ€§ç»„
+        ArrayList<ArrayList<String>> canReductAttrs;
+        HashMap<String, ArrayList<RecordCollection>> collectionMap;
 
-		collectionMap = constructCollectionMap(reductAttr);
-		ksCollections = computeKnowledgeSystem(collectionMap);
-		ks = new KnowledgeSystem(ksCollections);
-		System.out.println("Ô­Ê¼¼¯ºÏ·ÖÀàµÄÉÏÏÂ½üËÆ¼¯ºÏ");
-		ks.getDownSimilarRC(sameClassRcs[0]).printRc();
-		ks.getUpSimilarRC(sameClassRcs[0]).printRc();
-		ks.getDownSimilarRC(sameClassRcs[1]).printRc();
-		ks.getUpSimilarRC(sameClassRcs[1]).printRc();
+        sameClassRcs = selectTheSameClassRC();
+        // è¿™é‡Œè®²æ•°æ®æŒ‰ç…§å„ä¸ªåˆ†ç±»çš„å°å±æ€§åˆ’åˆ†äº†9ä¸ªé›†åˆ
+        recordSpiltToCollection();
 
-		attrNameList = new ArrayList<>();
-		for (int i = 1; i < attrNames.length - 1; i++) {
-			attrNameList.add(attrNames[i]);
-		}
+        collectionMap = constructCollectionMap(reductAttr);
+        ksCollections = computeKnowledgeSystem(collectionMap);
+        ks = new KnowledgeSystem(ksCollections);
+        System.out.println("åŸå§‹é›†åˆåˆ†ç±»çš„ä¸Šä¸‹è¿‘ä¼¼é›†åˆ");
+        ks.getDownSimilarRC(sameClassRcs[0]).printRc();
+        ks.getUpSimilarRC(sameClassRcs[0]).printRc();
+        ks.getDownSimilarRC(sameClassRcs[1]).printRc();
+        ks.getUpSimilarRC(sameClassRcs[1]).printRc();
 
-		ArrayList<String> remainAttr;
-		canReductAttrs = new ArrayList<>();
-		reductAttr = new ArrayList<>();
-		// ½øĞĞÌõ¼şÊôĞÔµÄµİ¹éÔ¼¼ò
-		for (String s : attrNameList) {
-			remainAttr = (ArrayList<String>) attrNameList.clone();
-			remainAttr.remove(s);
-			reductAttr = new ArrayList<>();
-			reductAttr.add(s);
-			recurrenceFindingReduct(canReductAttrs, reductAttr, remainAttr,
-					sameClassRcs);
-		}
-		
-		printRules(canReductAttrs);
-	}
+        attrNameList = new ArrayList<>();
+        for (int i = 1; i < attrNames.length - 1; i++) {
+            attrNameList.add(attrNames[i]);
+        }
 
-	/**
-	 * µİ¹é½øĞĞÊôĞÔÔ¼¼ò
-	 * 
-	 * @param resultAttr
-	 *            ÒÑ¾­¼ÆËã³öµÄÔ¼¼òÊôĞÔ×é
-	 * @param reductAttr
-	 *            ½«ÒªÔ¼¼òµÄÊôĞÔ×é
-	 * @param remainAttr
-	 *            Ê£ÓàµÄÊôĞÔ
-	 * @param sameClassRc
-	 *            ´ı¼ÆËãÉÏÏÂ½üËÆ¼¯ºÏµÄÍ¬Àà¼¯ºÏ
-	 */
-	private void recurrenceFindingReduct(
-			ArrayList<ArrayList<String>> resultAttr,
-			ArrayList<String> reductAttr, ArrayList<String> remainAttr,
-			RecordCollection[] sameClassRc) {
-		KnowledgeSystem ks;
-		ArrayList<RecordCollection> ksCollections;
-		ArrayList<String> copyRemainAttr;
-		ArrayList<String> copyReductAttr;
-		HashMap<String, ArrayList<RecordCollection>> collectionMap;
-		RecordCollection upRc1;
-		RecordCollection downRc1;
-		RecordCollection upRc2;
-		RecordCollection downRc2;
+        ArrayList<String> remainAttr;
+        canReductAttrs = new ArrayList<>();
+        reductAttr = new ArrayList<>();
+        // è¿›è¡Œæ¡ä»¶å±æ€§çš„é€’å½’çº¦ç®€
+        for (String s : attrNameList) {
+            remainAttr = (ArrayList<String>) attrNameList.clone();
+            remainAttr.remove(s);
+            reductAttr = new ArrayList<>();
+            reductAttr.add(s);
+            recurrenceFindingReduct(canReductAttrs, reductAttr, remainAttr,
+                    sameClassRcs);
+        }
 
-		collectionMap = constructCollectionMap(reductAttr);
-		ksCollections = computeKnowledgeSystem(collectionMap);
-		ks = new KnowledgeSystem(ksCollections);
-		
-		downRc1 = ks.getDownSimilarRC(sameClassRc[0]);
-		upRc1 = ks.getUpSimilarRC(sameClassRc[0]);
-		downRc2 = ks.getDownSimilarRC(sameClassRc[1]);
-		upRc2 = ks.getUpSimilarRC(sameClassRc[1]);
+        printRules(canReductAttrs);
+    }
 
-		// Èç¹ûÉÏÏÂ½üËÆÃ»ÓĞÍêÈ«ÄâºÏÔ­¼¯ºÏÔòÈÏÎªÊôĞÔ²»ÄÜ±»Ô¼¼ò
-		if (!upRc1.isCollectionSame(sameClassRc[0])
-				|| !downRc1.isCollectionSame(sameClassRc[0])) {
-			return;
-		}
-		//ÕıÀàºÍ¸ºÀà¶¼Ğè±È½Ï
-		if (!upRc2.isCollectionSame(sameClassRc[1])
-				|| !downRc2.isCollectionSame(sameClassRc[1])) {
-			return;
-		}
+    /**
+     * é€’å½’è¿›è¡Œå±æ€§çº¦ç®€
+     *
+     * @param resultAttr
+     *            å·²ç»è®¡ç®—å‡ºçš„çº¦ç®€å±æ€§ç»„
+     * @param reductAttr
+     *            å°†è¦çº¦ç®€çš„å±æ€§ç»„
+     * @param remainAttr
+     *            å‰©ä½™çš„å±æ€§
+     * @param sameClassRc
+     *            å¾…è®¡ç®—ä¸Šä¸‹è¿‘ä¼¼é›†åˆçš„åŒç±»é›†åˆ
+     */
+    private void recurrenceFindingReduct(
+            ArrayList<ArrayList<String>> resultAttr,
+            ArrayList<String> reductAttr, ArrayList<String> remainAttr,
+            RecordCollection[] sameClassRc) {
+        KnowledgeSystem ks;
+        ArrayList<RecordCollection> ksCollections;
+        ArrayList<String> copyRemainAttr;
+        ArrayList<String> copyReductAttr;
+        HashMap<String, ArrayList<RecordCollection>> collectionMap;
+        RecordCollection upRc1;
+        RecordCollection downRc1;
+        RecordCollection upRc2;
+        RecordCollection downRc2;
 
-		// ¼ÓÈëµ½½á¹û¼¯ÖĞ
-		resultAttr.add(reductAttr);
-		//Ö»Ê£ÏÂ1¸öÊôĞÔ²»ÄÜÔÙÔ¼¼ò
-		if (remainAttr.size() == 1) {
-			return;
-		}
+        collectionMap = constructCollectionMap(reductAttr);
+        ksCollections = computeKnowledgeSystem(collectionMap);
+        ks = new KnowledgeSystem(ksCollections);
 
-		for (String s : remainAttr) {
-			copyRemainAttr = (ArrayList<String>) remainAttr.clone();
-			copyReductAttr = (ArrayList<String>) reductAttr.clone();
-			copyRemainAttr.remove(s);
-			copyReductAttr.add(s);
-			recurrenceFindingReduct(resultAttr, copyReductAttr, copyRemainAttr,
-					sameClassRc);
-		}
-	}
+        downRc1 = ks.getDownSimilarRC(sameClassRc[0]);
+        upRc1 = ks.getUpSimilarRC(sameClassRc[0]);
+        downRc2 = ks.getDownSimilarRC(sameClassRc[1]);
+        upRc2 = ks.getUpSimilarRC(sameClassRc[1]);
 
-	/**
-	 * Ñ¡³ö¾ö²ßÊôĞÔÒ»ÖÂµÄ¼¯ºÏ
-	 * 
-	 * @return
-	 */
-	private RecordCollection[] selectTheSameClassRC() {
-		RecordCollection[] resultRc = new RecordCollection[2];
-		resultRc[0] = new RecordCollection();
-		resultRc[1] = new RecordCollection();
-		String attrValue;
+        // å¦‚æœä¸Šä¸‹è¿‘ä¼¼æ²¡æœ‰å®Œå…¨æ‹ŸåˆåŸé›†åˆåˆ™è®¤ä¸ºå±æ€§ä¸èƒ½è¢«çº¦ç®€
+        if (!upRc1.isCollectionSame(sameClassRc[0])
+                || !downRc1.isCollectionSame(sameClassRc[0])) {
+            return;
+        }
+        //æ­£ç±»å’Œè´Ÿç±»éƒ½éœ€æ¯”è¾ƒ
+        if (!upRc2.isCollectionSame(sameClassRc[1])
+                || !downRc2.isCollectionSame(sameClassRc[1])) {
+            return;
+        }
 
-		// ÕÒ³öµÚÒ»¸ö¼ÇÂ¼µÄ¾ö²ßÊôĞÔ×÷ÎªÒ»¸ö·ÖÀà
-		attrValue = totalRecords.get(0).getRecordDecisionClass();
-		for (Record r : totalRecords) {
-			if (attrValue.equals(r.getRecordDecisionClass())) {
-				resultRc[0].getRecord().add(r);
-			}else{
-				resultRc[1].getRecord().add(r);
-			}
-		}
+        // åŠ å…¥åˆ°ç»“æœé›†ä¸­
+        resultAttr.add(reductAttr);
+        //åªå‰©ä¸‹1ä¸ªå±æ€§ä¸èƒ½å†çº¦ç®€
+        if (remainAttr.size() == 1) {
+            return;
+        }
 
-		return resultRc;
-	}
-	
-	/**
-	 * Êä³ö¾ö²ß¹æÔò
-	 * @param reductAttrArray
-	 * Ô¼¼òÊôĞÔ×é
-	 */
-	public void printRules(ArrayList<ArrayList<String>> reductAttrArray){
-		//ÓÃÀ´±£´æÒÑ¾­ÃèÊö¹ıµÄ¹æÔò£¬±ÜÃâÖØ¸´Êä³ö
-		ArrayList<String> rulesArray;
-		String rule;
-		
-		for(ArrayList<String> ra: reductAttrArray){
-			rulesArray = new ArrayList<>();
-			System.out.print("Ô¼¼òµÄÊôĞÔ£º");
-			for(String s: ra){
-				System.out.print(s + ",");
-			}
-			System.out.println();
-			
-			for(Record r: totalRecords){
-				rule = r.getDecisionRule(ra);
-				if(!rulesArray.contains(rule)){
-					rulesArray.add(rule);
-					System.out.println(rule);
-				}
-			}
-			System.out.println();
-		} 
-	}
+        for (String s : remainAttr) {
+            copyRemainAttr = (ArrayList<String>) remainAttr.clone();
+            copyReductAttr = (ArrayList<String>) reductAttr.clone();
+            copyRemainAttr.remove(s);
+            copyReductAttr.add(s);
+            recurrenceFindingReduct(resultAttr, copyReductAttr, copyRemainAttr,
+                    sameClassRc);
+        }
+    }
 
-	/**
-	 * Êä³ö¼ÇÂ¼¼¯ºÏ
-	 * 
-	 * @param rcList
-	 *            ´ıÊä³ö¼ÇÂ¼¼¯ºÏ
-	 */
-	public void printRecordCollectionList(ArrayList<RecordCollection> rcList) {
-		for (RecordCollection rc : rcList) {
-			System.out.print("{");
-			for (Record r : rc.getRecord()) {
-				System.out.print(r.getName() + ", ");
-			}
-			System.out.println("}");
-		}
-	}
+    /**
+     * é€‰å‡ºå†³ç­–å±æ€§ä¸€è‡´çš„é›†åˆ
+     *
+     * @return
+     */
+    private RecordCollection[] selectTheSameClassRC() {
+        RecordCollection[] resultRc = new RecordCollection[2];
+        resultRc[0] = new RecordCollection();
+        resultRc[1] = new RecordCollection();
+        String attrValue;
+
+        // æ‰¾å‡ºç¬¬ä¸€ä¸ªè®°å½•çš„å†³ç­–å±æ€§ä½œä¸ºä¸€ä¸ªåˆ†ç±»
+        attrValue = totalRecords.get(0).getRecordDecisionClass();
+        for (Record r : totalRecords) {
+            if (attrValue.equals(r.getRecordDecisionClass())) {
+                resultRc[0].getRecord().add(r);
+            }else{
+                resultRc[1].getRecord().add(r);
+            }
+        }
+
+        return resultRc;
+    }
+
+    /**
+     * è¾“å‡ºå†³ç­–è§„åˆ™
+     * @param reductAttrArray
+     * çº¦ç®€å±æ€§ç»„
+     */
+    public void printRules(ArrayList<ArrayList<String>> reductAttrArray){
+        //ç”¨æ¥ä¿å­˜å·²ç»æè¿°è¿‡çš„è§„åˆ™ï¼Œé¿å…é‡å¤è¾“å‡º
+        ArrayList<String> rulesArray;
+        String rule;
+
+        for(ArrayList<String> ra: reductAttrArray){
+            rulesArray = new ArrayList<>();
+            System.out.print("çº¦ç®€çš„å±æ€§ï¼š");
+            for(String s: ra){
+                System.out.print(s + ",");
+            }
+            System.out.println();
+
+            for(Record r: totalRecords){
+                rule = r.getDecisionRule(ra);
+                if(!rulesArray.contains(rule)){
+                    rulesArray.add(rule);
+                    System.out.println(rule);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * è¾“å‡ºè®°å½•é›†åˆ
+     *
+     * @param rcList
+     *            å¾…è¾“å‡ºè®°å½•é›†åˆ
+     */
+    public void printRecordCollectionList(ArrayList<RecordCollection> rcList) {
+        for (RecordCollection rc : rcList) {
+            System.out.print("{");
+            for (Record r : rc.getRecord()) {
+                System.out.print(r.getName() + ", ");
+            }
+            System.out.println("}");
+        }
+    }
 }

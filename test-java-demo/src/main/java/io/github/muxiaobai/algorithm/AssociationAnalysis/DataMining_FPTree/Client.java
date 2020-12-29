@@ -7,7 +7,8 @@ package io.github.muxiaobai.algorithm.AssociationAnalysis.DataMining_FPTree;
  */
 public class Client {
     public static void main(String[] args){
-        String filePath = "E:\\CourseExercises\\java\\ProjectTest\\src\\io.github.muxiaobai.algorithm\\AssociationAnalysis\\DataMining_FPTree\\testInput.txt";
+        String filePath = Client.class.getClassLoader().getResource("").getPath() + "\\io\\github\\muxiaobai" +
+                "\\algorithm\\AssociationAnalysis\\DataMining_FPTree\\testInput.txt";
         
 
         //最小支持度阈值

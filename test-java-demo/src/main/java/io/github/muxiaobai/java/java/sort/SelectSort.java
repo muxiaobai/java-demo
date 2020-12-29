@@ -9,14 +9,13 @@
 
 package io.github.muxiaobai.java.java.sort;
 /**
- * ClassName:SelectSort <br/>
+ * ClassName:SelectSort
  * Function: TODO  选择排序  堆
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2017年9月11日 下午5:19:32 <br/>
+ * Reason:	 TODO ADD REASON.
+ * Date:     2017年9月11日 下午5:19:32
  * @author   Mu Xiaobai
  * @version  简单选择 堆
  * @since    JDK 1.8
- * @see 	 
  */
 public class SelectSort {
     public static void main(String[] args) {

@@ -3,8 +3,8 @@ package io.github.muxiaobai.java.java.threadTest;
 /** 
  * 
  * @author zhang
- * @Date  2016年7月23日 上午11:24:34
- * @doing 
+ * @date  2016年7月23日 上午11:24:34
+ *
  */
 
 public class Thread1 implements Runnable {  

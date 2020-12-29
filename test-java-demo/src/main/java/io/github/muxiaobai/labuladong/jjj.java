@@ -33,7 +33,7 @@ public class jjj {
      * 1  两数和
      *
      * @param nums
-     * @return
+     * @return int[]
      */
     public static int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
@@ -49,9 +49,9 @@ public class jjj {
     /**
      * 1  两数和
      *
-     * @param nums
-     * @param target
-     * @return
+     * @param nums 1
+     * @param target 1
+     * @return int[] ws
      */
     public static int[] twoSum2(int[] nums, int target) {
         HashMap<Integer, Integer> hashMap = new HashMap();
@@ -69,9 +69,9 @@ public class jjj {
     /**
      * 1  两数和
      *
-     * @param nums
-     * @param target
-     * @return
+     * @param nums 1
+     * @param target 1
+     * @return int[]
      */
     public static int[] twoSum3(int[] nums, int target) {
         Arrays.sort(nums);
@@ -95,9 +95,9 @@ public class jjj {
      * 1  两数和
      * 返回所有满足条件的数字
      *
-     * @param nums
-     * @param target
-     * @return
+     * @param nums 1
+     * @param target 1
+     * @return int[][]
      */
     public static int[][] twoSum4(int[] nums, int target) {
         HashMap<Integer, Integer> hashMap = new HashMap();
@@ -115,10 +115,10 @@ public class jjj {
      * 1  两数和
      * 收尾指针
      * 左右横跳
-     * @param nums
-     * @param  start
-     * @param target
-     * @return
+     * @param nums 1
+     * @param  start 1
+     * @param target 1
+     * @return List<List<Integer>>
      */
     public static List<List<Integer>> twoSum5(int[] nums, int start, int target) {
         Arrays.sort(nums);
@@ -156,8 +156,8 @@ public class jjj {
      * 15 三数和
      * a+ b+ c =0
      *
-     * @param nums
-     * @return
+     * @param nums 1
+     * @return List<List<Integer>>
      */
     public static List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);

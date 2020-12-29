@@ -6,8 +6,8 @@ import java.util.Set;
 /** 
  * 
  * @author zhang
- * @Date  2016年7月20日 下午2:32:48
- * @doing 
+ * @date  2016年7月20日 下午2:32:48
+ *
  */
 
 public class SetTest {

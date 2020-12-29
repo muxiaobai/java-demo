@@ -19,14 +19,14 @@ import java.net.Socket;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 
 /**
- * ClassName:test <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2018年4月12日 下午2:16:47 <br/>
+ * ClassName:test
+ * Function: TODO ADD FUNCTION.
+ * Reason:	 TODO ADD REASON.
+ * Date:     2018年4月12日 下午2:16:47
  * @author   Mu Xiaobai
  * @version  
  * @since    JDK 1.8
- * @see 	 
+ * @see 	 java.net.Socket
  */
 public class HttpServer {
         // 用于判断是否需要关闭容器

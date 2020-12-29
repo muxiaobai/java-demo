@@ -9,14 +9,13 @@
 
 package io.github.muxiaobai.java.java.sort;
 /**
- * ClassName:InsertSort <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2017年9月11日 上午10:58:58 <br/>
+ * ClassName:InsertSort
+ * Function: TODO ADD FUNCTION.
+ * Reason:	 TODO ADD REASON.
+ * Date:     2017年9月11日 上午10:58:58
  * @author   Mu Xiaobai
  * @version   直接插入  二分插入 shell
  * @since    JDK 1.8
- * @see 	 
  */
 public class InsertSort {
    public static void main(String[] args) {
@@ -103,12 +102,14 @@ public class InsertSort {
        }
    }
    /**
+    *
     * Shell也是用的插入
     * ShellInsert:()
     * 先取一个小于n的整数d1作为第一个增量，把文件的全部记录分成d1个组。
     * 所有距离为d1的倍数的记录放在同一个组中。先在各组内进行直接插入排序；
     * 然后，取第二个增量d2<d1重复上述的分组和排序，直至所取的增量dt=1(dt<dt-l<…<d2<d1)，
     * 即所有记录放在同一组中进行直接插入排序为止。该方法实质上是一种分组插入方法。
+    *
     * @author Mu Xiaobai
     * @since JDK 1.8
     */

@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * ClassName:Request <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2018年4月12日 下午3:00:01 <br/>
+ * ClassName:Request
+ * Function: TODO ADD FUNCTION.
+ * Reason:	 TODO ADD REASON.
+ * Date:     2018年4月12日 下午3:00:01
  * @author   Mu Xiaobai
- * @version  
+ * @version  1.8
  * @since    JDK 1.8
- * @see 	 
+ * @see 	 java.io.InputStream
  */
 public class Request {
     private InputStream is;

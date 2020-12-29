@@ -1,176 +1,176 @@
-package DataMining_RoughSets;
+package io.github.muxiaobai.algorithm.RoughSets.DataMining_RoughSets;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Êı¾İ¼ÇÂ¼¼¯ºÏ£¬°üº¬Ò»Ğ©¹²Í¬µÄÊôĞÔ
- * 
+ * æ•°æ®è®°å½•é›†åˆï¼ŒåŒ…å«ä¸€äº›å…±åŒçš„å±æ€§
+ *
  * @author lyq
- * 
+ *
  */
 public class RecordCollection {
-	// ¼¯ºÏ°üº¬µÄÊôĞÔ
-	private HashMap<String, String> attrValues;
-	// Êı¾İ¼ÇÂ¼ÁĞ±í
-	private ArrayList<Record> recordList;
+    // é›†åˆåŒ…å«çš„å±æ€§
+    private HashMap<String, String> attrValues;
+    // æ•°æ®è®°å½•åˆ—è¡¨
+    private ArrayList<Record> recordList;
 
-	public RecordCollection() {
-		this.attrValues = new HashMap<>();
-		this.recordList = new ArrayList<>();
-	}
+    public RecordCollection() {
+        this.attrValues = new HashMap<>();
+        this.recordList = new ArrayList<>();
+    }
 
-	public RecordCollection(HashMap<String, String> attrValues,
-			ArrayList<Record> recordList) {
-		this.attrValues = attrValues;
-		this.recordList = recordList;
-	}
+    public RecordCollection(HashMap<String, String> attrValues,
+                            ArrayList<Record> recordList) {
+        this.attrValues = attrValues;
+        this.recordList = recordList;
+    }
 
-	public ArrayList<Record> getRecord() {
-		return this.recordList;
-	}
+    public ArrayList<Record> getRecord() {
+        return this.recordList;
+    }
 
-	/**
-	 * ·µ»Ø¼¯ºÏµÄ×Ö·ûÃû³ÆÊı×é
-	 * 
-	 * @return
-	 */
-	public ArrayList<String> getRecordNames() {
-		ArrayList<String> names = new ArrayList<>();
+    /**
+     * è¿”å›é›†åˆçš„å­—ç¬¦åç§°æ•°ç»„
+     *
+     * @return
+     */
+    public ArrayList<String> getRecordNames() {
+        ArrayList<String> names = new ArrayList<>();
 
-		for (int i = 0; i < recordList.size(); i++) {
-			names.add(recordList.get(i).getName());
-		}
+        for (int i = 0; i < recordList.size(); i++) {
+            names.add(recordList.get(i).getName());
+        }
 
-		return names;
-	}
+        return names;
+    }
 
-	/**
-	 * ÅĞ¶Ï¼¯ºÏÊÇ·ñ°üº¬´ËÊôĞÔÃû³Æ¶ÔÓ¦µÄÊôĞÔÖµ
-	 * 
-	 * @param attrName
-	 *            ÊôĞÔÃû
-	 * @return
-	 */
-	public boolean isContainedAttrName(String attrName) {
-		boolean isContained = false;
+    /**
+     * åˆ¤æ–­é›†åˆæ˜¯å¦åŒ…å«æ­¤å±æ€§åç§°å¯¹åº”çš„å±æ€§å€¼
+     *
+     * @param attrName
+     *            å±æ€§å
+     * @return
+     */
+    public boolean isContainedAttrName(String attrName) {
+        boolean isContained = false;
 
-		if (this.attrValues.containsKey(attrName)) {
-			isContained = true;
-		}
+        if (this.attrValues.containsKey(attrName)) {
+            isContained = true;
+        }
 
-		return isContained;
-	}
+        return isContained;
+    }
 
-	/**
-	 * ÅĞ¶Ï2¸ö¼¯ºÏÊÇ·ñÏàµÈ£¬±È½Ï°üº¬µÄÊı¾İ¼ÇÂ¼ÊÇ·ñÍêÈ«Ò»ÖÂ
-	 * 
-	 * @param rc
-	 *            ´ı±È½Ï¼¯ºÏ
-	 * @return
-	 */
-	public boolean isCollectionSame(RecordCollection rc) {
-		boolean isSame = false;
+    /**
+     * åˆ¤æ–­2ä¸ªé›†åˆæ˜¯å¦ç›¸ç­‰ï¼Œæ¯”è¾ƒåŒ…å«çš„æ•°æ®è®°å½•æ˜¯å¦å®Œå…¨ä¸€è‡´
+     *
+     * @param rc
+     *            å¾…æ¯”è¾ƒé›†åˆ
+     * @return
+     */
+    public boolean isCollectionSame(RecordCollection rc) {
+        boolean isSame = false;
 
-		for (Record r : recordList) {
-			isSame = false;
+        for (Record r : recordList) {
+            isSame = false;
 
-			for (Record r2 : rc.recordList) {
-				if (r.isRecordSame(r2)) {
-					isSame = true;
-					break;
-				}
-			}
+            for (Record r2 : rc.recordList) {
+                if (r.isRecordSame(r2)) {
+                    isSame = true;
+                    break;
+                }
+            }
 
-			// Èç¹ûÓĞ1¸ö¼ÇÂ¼²»°üº¬£¬¾ÍËã¼¯ºÏ²»ÏàµÈ
-			if (!isSame) {
-				break;
-			}
-		}
+            // å¦‚æœæœ‰1ä¸ªè®°å½•ä¸åŒ…å«ï¼Œå°±ç®—é›†åˆä¸ç›¸ç­‰
+            if (!isSame) {
+                break;
+            }
+        }
 
-		return isSame;
-	}
+        return isSame;
+    }
 
-	/**
-	 * ¼¯ºÏÖ®¼äµÄ½»ÔËËã
-	 * 
-	 * @param rc
-	 *            ½»ÔËËãµÄ²ÎÓëÔËËãµÄÁíÍâÒ»¼¯ºÏ
-	 * @return
-	 */
-	public RecordCollection overlapCalculate(RecordCollection rc) {
-		String key;
-		String value;
-		RecordCollection resultCollection = null;
-		HashMap<String, String> resultAttrValues = new HashMap<>();
-		ArrayList<Record> resultRecords = new ArrayList<>();
+    /**
+     * é›†åˆä¹‹é—´çš„äº¤è¿ç®—
+     *
+     * @param rc
+     *            äº¤è¿ç®—çš„å‚ä¸è¿ç®—çš„å¦å¤–ä¸€é›†åˆ
+     * @return
+     */
+    public RecordCollection overlapCalculate(RecordCollection rc) {
+        String key;
+        String value;
+        RecordCollection resultCollection = null;
+        HashMap<String, String> resultAttrValues = new HashMap<>();
+        ArrayList<Record> resultRecords = new ArrayList<>();
 
-		// ½øĞĞ¼¯ºÏµÄ½»ÔËËã£¬ÓĞÏàÍ¬µÄ¼ÇÂ¼µÄÔò½øĞĞÌí¼Ó
-		for (Record record : this.recordList) {
-			for (Record record2 : rc.recordList) {
-				if (record.isRecordSame(record2)) {
-					resultRecords.add(record);
-					break;
-				}
-			}
-		}
+        // è¿›è¡Œé›†åˆçš„äº¤è¿ç®—ï¼Œæœ‰ç›¸åŒçš„è®°å½•çš„åˆ™è¿›è¡Œæ·»åŠ 
+        for (Record record : this.recordList) {
+            for (Record record2 : rc.recordList) {
+                if (record.isRecordSame(record2)) {
+                    resultRecords.add(record);
+                    break;
+                }
+            }
+        }
 
-		// Èç¹ûÃ»ÓĞ½»¼¯£¬ÔòÖ±½Ó·µ»Ø
-		if (resultRecords.size() == 0) {
-			return null;
-		}
+        // å¦‚æœæ²¡æœ‰äº¤é›†ï¼Œåˆ™ç›´æ¥è¿”å›
+        if (resultRecords.size() == 0) {
+            return null;
+        }
 
-		// ½«2¸ö¼¯ºÏµÄÊôĞÔ½øĞĞºÏ²¢
-		for (Map.Entry entry : this.attrValues.entrySet()) {
-			key = (String) entry.getKey();
-			value = (String) entry.getValue();
+        // å°†2ä¸ªé›†åˆçš„å±æ€§è¿›è¡Œåˆå¹¶
+        for (Map.Entry entry : this.attrValues.entrySet()) {
+            key = (String) entry.getKey();
+            value = (String) entry.getValue();
 
-			resultAttrValues.put(key, value);
-		}
+            resultAttrValues.put(key, value);
+        }
 
-		for (Map.Entry entry : rc.attrValues.entrySet()) {
-			key = (String) entry.getKey();
-			value = (String) entry.getValue();
+        for (Map.Entry entry : rc.attrValues.entrySet()) {
+            key = (String) entry.getKey();
+            value = (String) entry.getValue();
 
-			resultAttrValues.put(key, value);
-		}
+            resultAttrValues.put(key, value);
+        }
 
-		resultCollection = new RecordCollection(resultAttrValues, resultRecords);
-		return resultCollection;
-	}
+        resultCollection = new RecordCollection(resultAttrValues, resultRecords);
+        return resultCollection;
+    }
 
-	/**
-	 * Çó¼¯ºÏµÄ²¢¼¯£¬¸÷×Ô±£Áô¸÷×ÔµÄÊôĞÔ
-	 * 
-	 * @param rc
-	 *            ´ıºÏ²¢µÄ¼¯ºÏ
-	 * @return
-	 */
-	public RecordCollection unionCal(RecordCollection rc) {
-		RecordCollection resultRc = null;
-		ArrayList<Record> records = new ArrayList<>();
+    /**
+     * æ±‚é›†åˆçš„å¹¶é›†ï¼Œå„è‡ªä¿ç•™å„è‡ªçš„å±æ€§
+     *
+     * @param rc
+     *            å¾…åˆå¹¶çš„é›†åˆ
+     * @return
+     */
+    public RecordCollection unionCal(RecordCollection rc) {
+        RecordCollection resultRc = null;
+        ArrayList<Record> records = new ArrayList<>();
 
-		for (Record r1 : this.recordList) {
-			records.add(r1);
-		}
+        for (Record r1 : this.recordList) {
+            records.add(r1);
+        }
 
-		for (Record r2 : rc.recordList) {
-			records.add(r2);
-		}
+        for (Record r2 : rc.recordList) {
+            records.add(r2);
+        }
 
-		resultRc = new RecordCollection(null, records);
-		return resultRc;
-	}
-	
-	/**
-	 * Êä³ö¼¯ºÏÖĞ°üº¬µÄÔªËØ
-	 */
-	public void printRc(){
-		System.out.print("{");
-		for (Record r : this.getRecord()) {
-			System.out.print(r.getName() + ", ");
-		}
-		System.out.println("}");
-	}
+        resultRc = new RecordCollection(null, records);
+        return resultRc;
+    }
+
+    /**
+     * è¾“å‡ºé›†åˆä¸­åŒ…å«çš„å…ƒç´ 
+     */
+    public void printRc(){
+        System.out.print("{");
+        for (Record r : this.getRecord()) {
+            System.out.print(r.getName() + ", ");
+        }
+        System.out.println("}");
+    }
 }

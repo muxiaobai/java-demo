@@ -12,14 +12,14 @@ package io.github.muxiaobai.java.java.java8;
 import java.util.Arrays;
 
 /**
- * ClassName:lambda <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:	 TODO ADD REASON. <br/>
- * Date:     2017年9月18日 上午9:49:22 <br/>
+ * ClassName:lambda
+ * Function: TODO ADD FUNCTION.
+ * Reason:	 TODO ADD REASON.
+ * @date     2017年9月18日 上午9:49:22
  * @author   Mu Xiaobai
- * @version  
+ * @version  1.8
  * @since    JDK 1.8
- * @see 	 
+ * @date 2020/12/2/002 17:06
  */
 public class lambda {
     public static void main(String[] args) {

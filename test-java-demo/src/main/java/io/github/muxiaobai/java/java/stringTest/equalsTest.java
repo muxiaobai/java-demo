@@ -3,8 +3,8 @@ package io.github.muxiaobai.java.java.stringTest;
 /** 
  * 
  * @author zhang
- * @Date  2016年7月21日 下午1:03:11
- * @doing 
+ * @date  2016年7月21日 下午1:03:11
+ *
  */
 
 public class equalsTest {
