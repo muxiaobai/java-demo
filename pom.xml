@@ -134,6 +134,7 @@
             <id>oss</id>
             <name>snapshots repository</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <layout>default</layout>
         </repository>
         <snapshotRepository>
             <id>oss</id>

@@ -37,13 +37,13 @@ jobs:
           java-version: 1.8
           server-id: oss
           # Nexus用户名环境变量
-          server-username:  ${{ secrets.NEXUS_USERNAME }}
+          server-username: ${{ secrets.NEXUS_USERNAME }}
           # Nexus密码环境变量
           server-password: ${{ secrets.NEXUS_PASSWORD }}
-          # gpg短密码环境变量
-          gpg-passphrase: ${{ secrets.NEXUS_GPG_PASSPHRASE }}
           # gpg私钥
-          gpg-private-key: ${{ secrets.GPG_PK }}
+          #gpg-private-key: ${{ secrets.GPG_PK }}
+          # gpg短密码环境变量
+          #gpg-passphrase: ${{ secrets.NEXUS_GPG_PASSPHRASE }}
       - name: Build with Maven
         env:
           NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
