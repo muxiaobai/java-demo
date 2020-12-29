@@ -37,4 +37,6 @@ jobs:
           # 时区配置为Asia/Shanghai
         run:
           #mvn compile exec:java -Dexec.mainClass="top.misec.BiliMain" -Dexec.args="${DEDEUSERID} ${SESSDATA}${BILI_JCT} ${SERVERPUSHKEY}"
-          mvn javadoc:jar source:jar deploy -P release -Darguments="gpg.passphrase=${GPG_PWD}"
+          #mvn javadoc:jar source:jar deploy -P release -Darguments="gpg.passphrase=${GPG_PWD}"
+          mvn javadoc:jar source:jar package
+
