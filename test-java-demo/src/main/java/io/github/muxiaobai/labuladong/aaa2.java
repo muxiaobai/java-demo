@@ -30,10 +30,26 @@ public class aaa2 {
         long d = System.currentTimeMillis();
         System.out.println(minDays2(n));
         long e = System.currentTimeMillis();
-        System.out.println("b-a:" + (b - a) + ",c-b:" + (c - b) + ",d-c:" + (d - c) + ",e-d:" + (e - d));
+        System.out.println("minDays:" + (b - a) + ",minDays0:" + (c - b) + ",minDays1:" + (d - c) + ",minDays2:" + (e - d));
     }
 
+    /**
+     * @param n
+     * @return
+     */
+    public static int minDays(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return Math.min(n % 2 + 1 + minDays(n / 2), n % 3 + 1 + minDays(n / 3));
+        }
+    }
 
+    /**
+     *  java  -XX:+PrintFlagsFinal -version | findstr Stack
+     * @param n
+     * @return
+     */
     public static int minDays0(int n) {
         if (n <= 1) {
             return n;
@@ -98,17 +114,6 @@ public class aaa2 {
         }
     }
 
-    /**
-     * @param n
-     * @return
-     */
-    public static int minDays(int n) {
-        if (n <= 1) {
-            return n;
-        } else {
-            return Math.min(n % 2 + 1 + minDays(n / 2), n % 3 + 1 + minDays(n / 3));
-        }
-    }
     static Map<Integer, Integer> memo2 = new HashMap<Integer, Integer>();
 
     public static int minDays2(int n) {

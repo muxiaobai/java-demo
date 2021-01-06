@@ -13,6 +13,7 @@ package io.github.muxiaobai.labuladong;
 public class aaa {
     public static void main(String[] args) {
         int x = 45;
+        //18239;
         aaa aaa = new aaa();
         // 普通斐波那契
         aaa.demofib(x);
@@ -32,6 +33,12 @@ public class aaa {
         System.out.println(end - start);
     }
 
+    /**
+     * java  -XX:+PrintFlagsFinal -version | findstr Stack
+     * -Xss3m
+     * @param x
+     * @return
+     */
     int fib(int x) {
         if (x == 1 || x == 2) {
             return 1;
@@ -75,7 +82,10 @@ public class aaa {
         long end = System.currentTimeMillis();
         System.out.println("fib3:" + (end - start));
     }
-
+    int fib33(int x) {
+        int[] table = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040};
+        return table[x];
+    }
     int fib3(int x) {
         int[] ccc = new int[x];
         ccc[0] = 1;
