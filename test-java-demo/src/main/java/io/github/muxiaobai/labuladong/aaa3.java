@@ -17,7 +17,7 @@ import java.util.Arrays;
  */
 public class aaa3 {
     public static void main(String[] args) {
-        int[] coins = {5, 10};
+        int[] coins = {1, 2, 5, 10};
         int x = 13;
         aaa3 aaa3 = new aaa3();
 //        aaa3.democoin(coins, x);
@@ -28,8 +28,8 @@ public class aaa3 {
     }
 
     /**
-     *
      * 搜索回溯 [超出时间限制]
+     *
      * @param coins coins 硬币
      * @param x     x 总钱数
      */
