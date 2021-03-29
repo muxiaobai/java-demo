@@ -8,8 +8,8 @@ package io.github.muxiaobai.algorithm.LinkMining.DataMining_PageRank;
  */
 public class Client {
     public static void main(String[] args){
-        String filePath = "E:\\CourseExercises\\java\\ProjectTest\\src\\io.github.muxiaobai.algorithm\\LinkMining\\DataMining_PageRank\\input.txt";
-        
+        String filePath = Client.class.getClassLoader().getResource("").getPath() +
+                "\\io\\github\\muxiaobai\\algorithm\\LinkMining\\DataMining_PageRank\\input.txt";
         PageRankTool tool = new PageRankTool(filePath);
         tool.printPageRankValue();
     }

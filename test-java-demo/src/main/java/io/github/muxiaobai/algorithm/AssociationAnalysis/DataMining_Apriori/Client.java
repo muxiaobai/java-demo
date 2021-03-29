@@ -7,9 +7,8 @@ package io.github.muxiaobai.algorithm.AssociationAnalysis.DataMining_Apriori;
  */
 public class Client {
     public static void main(String[] args) {
-        String filePath = Client.class.getClassLoader().getResource("").getPath() + "\\io\\github\\muxiaobai" +
-                "\\algorithm\\AssociationAnalysis\\DataMining_Apriori\\testInput.txt";
-//
+        String filePath = Client.class.getClassLoader().getResource("").getPath() +
+                "\\io\\github\\muxiaobai\\algorithm\\AssociationAnalysis\\DataMining_Apriori\\testInput.txt";
         AprioriTool tool = new AprioriTool(filePath, 2);
         tool.printAttachRule(0.7);
     }

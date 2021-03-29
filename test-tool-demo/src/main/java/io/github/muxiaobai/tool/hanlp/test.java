@@ -1,6 +1,8 @@
 package io.github.muxiaobai.tool.hanlp;
 
 import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.seg.Segment;
+import com.hankcs.hanlp.seg.common.Term;
 
 import java.util.List;
 
@@ -53,7 +55,58 @@ public class test {
         System.out.println(HanLP.extractKeyword(text, 5));
         System.out.println(HanLP.extractPhrase(text, 5));
     }
-
+    public static void test1() {
+//        System.out.println(new File("").getAbsolutePath());
+//        System.out.println(new File(HanLP.Config.CoreDictionaryTransformMatrixDictionaryPath).exists());
+        HanLP.Config.enableDebug(true);
+//
+        String[] testCase = new String[]{
+                "签约仪式前，秦光荣、李纪恒、仇和等一同会见了参加签约的企业家。",
+                "王国强、高峰、汪洋、张朝阳光着头、韩寒、小四",
+                "张浩和胡健康复员回家了",
+                "王总和小丽结婚了",
+                "编剧邵钧林和稽道青说",
+                "这里有关天培的有关事迹",
+                "龚学平等领导,邓颖超生前",
+        };
+        HanLP.extractKeyword(testCase[0],10);
+        Segment segment = HanLP.newSegment().enableNameRecognize(true);
+        for (String sentence : testCase)
+        {
+            List<Term> termList = segment.seg(sentence);
+            System.out.println(termList);
+        }
+//        String[] testCase = new String[]{
+//                "武胜县新学乡政府大楼门前锣鼓喧天",
+//                "蓝翔给宁夏固原市彭阳县红河镇黑牛沟村捐赠了挖掘机",
+//        };
+//        Segment segment = HanLP.newSegment().enablePlaceRecognize(true);
+//        for (String sentence : testCase)
+//        {
+//            List<Term> termList = segment.seg(sentence);
+//            System.out.println(termList);
+//        }
+//        HanLP.Config.enableDebug();
+//        System.out.println(HanLP.convertToSimplifiedChinese("「以後等妳當上皇后，就能買士多啤梨慶祝了」"));
+//        System.out.println(HanLP.convertToSimplifiedChinese("「以後等妳當上皇后，就能買草莓慶祝了」"));
+//        System.out.println(HanLP.convertToTraditionalChinese("“以后等你当上皇后，就能买草莓庆祝了”"));
+//        Suggester suggester = new Suggester();
+//        String[] titleArray =
+//                (
+//                        "威廉王子发表演说 呼吁保护野生动物\n" +
+//                                "《时代》年度人物最终入围名单出炉 普京马云入选\n" +
+//                                "“黑格比”横扫菲：菲吸取“海燕”经验及早疏散\n" +
+//                                "日本保密法将正式生效 日媒指其损害国民知情权\n" +
+//                                "英报告说空气污染带来“公共健康危机”"
+//                ).split("\\n");
+//        for (String title : titleArray)
+//        {
+//            suggester.addSentence(title);
+//        }
+//        System.out.println(suggester.suggest("发言", 1));       // 语义
+//        System.out.println(suggester.suggest("危机公共", 1));   // 字符
+//        System.out.println(suggester.suggest("mayun", 1));      // 拼音
+    }
     public static void main(String[] args) {
         extractPhrase();
     }
