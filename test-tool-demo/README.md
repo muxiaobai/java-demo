@@ -23,3 +23,18 @@
 [https://github.com/kennycason/kumo](https://github.com/kennycason/kumo)
 
 ## javacv 类似于opencv
+
+## JMH  
+```
+<dependency>
+    <groupId>org.openjdk.jmh</groupId>
+    <artifactId>jmh-core</artifactId>
+    <version>1.23</version>
+</dependency>
+<dependency>
+    <groupId>org.openjdk.jmh</groupId>
+    <artifactId>jmh-generator-annprocess</artifactId>
+    <version>1.23</version>
+</dependency>
+```
+
