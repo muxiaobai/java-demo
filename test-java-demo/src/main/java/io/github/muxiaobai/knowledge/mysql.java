@@ -1,4 +1,4 @@
-package io.github.muxiaobai.labuladong;
+package io.github.muxiaobai.knowledge;
 
 /**
  *
@@ -33,6 +33,6 @@ package io.github.muxiaobai.labuladong;
  *
  *
  */
-public class hhht {
+public class mysql {
 
 }
